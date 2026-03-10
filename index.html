@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHORA - Mindfulness y Presencia</title>
+    <style>
+        :root {
+            --primary: #7b68ee; /* Lila del vídeo */
+            --bg-gradient: linear-gradient(180deg, #f4f4f9 0%, #e6e6fa 100%);
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-gradient);
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 10px auto 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .pricing {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        .btn-paddle {
+            background: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn-paddle:hover {
+            opacity: 0.9;
+        }
+
+        .legal-section {
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #ddd;
+            padding-top: 30px;
+            margin-top: 50px;
+        }
+
+        .legal-section a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .mockup {
+            max-width: 250px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="logo-text">AHORA</p>
+        <p class="hero-subtitle">Vuelve al presente. Una app diseñada para integrar el mindfulness en tu vida diaria de forma orgánica.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="features">
+            <div class="feature-card">
+                <h3>🔔 Notificaciones</h3>
+                <p>Configura tus propias frases y elige el intervalo para recibir recordatorios que te devuelvan al aquí y ahora.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌬️ Respiración</h3>
+                <p>Ejercicios guiados con patrones visuales para calmar tu mente en cualquier momento.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎵 Sonidos</h3>
+                <p>Lluvia, olas, río o fuego. Sonidos naturales de alta fidelidad para tus sesiones de meditación.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Tu Progreso</h3>
+                <p>Contador de sesiones y registro de tiempo para ayudarte a construir un hábito sólido.</p>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <h2>Consigue AHORA Pro</h2>
+            <p>Desbloquea todos los sonidos, frases ilimitadas y personalización completa.</p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin: 20px 0;">Pago Único</p>
+            <a href="#" class="btn-paddle">Comprar Versión Pro</a>
+            <p style="font-size: 0.8rem; margin-top: 15px;">Transacción segura gestionada por Paddle.</p>
+        </section>
+
+        <footer class="legal-section">
+            <p><strong>Contacto:</strong> tu-email@dominio.com</p>
+            <p>
+                <a href="#privacy">Política de Privacidad</a> | 
+                <a href="#terms">Términos de Servicio</a>
+            </p>
+            <div id="privacy" style="margin-top: 20px;">
+                <p><strong>Privacidad:</strong> AHORA respeta tu intimidad. Tus frases personales y configuraciones se almacenan exclusivamente en tu dispositivo local. No vendemos tus datos a terceros.</p>
+            </div>
+            <div id="terms">
+                <p><strong>Términos:</strong> El acceso a la versión Pro es una licencia de uso personal y permanente tras un único pago. Los reembolsos se gestionan según la política de Paddle.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
