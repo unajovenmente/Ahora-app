@@ -7,6 +7,7 @@
     <style>
         :root {
             --primary: #7b68ee;
+            --bg-gradient: linear-gradient(180deg, #f4f4f9 0%, #e6e6fa 100%);
             --text: #333;
             --white: #ffffff;
         }
@@ -20,22 +21,15 @@
             scroll-behavior: smooth;
         }
 
-        /* SECCIÓN HERO CON IMAGEN DE FONDO */
+        /* --- SECCIÓN VISUAL (ÁRBOL) --- */
         .hero-section {
-            position: relative;
-            /* Intentamos cargar tree.jpg desde la carpeta raíz */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(244,244,249,1)), url('./tree.jpg');
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(244,244,249,1)), url('tree.jpg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            padding: 100px 20px;
+            background-attachment: fixed;
+            padding: 120px 20px;
             text-align: center;
             color: white;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .logo-img {
@@ -43,161 +37,175 @@
             height: 130px;
             border-radius: 50%;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            background-color: white; /* Por si la imagen falla, que se vea el círculo */
-            object-fit: cover;
+            margin-bottom: 25px;
+            border: 3px solid rgba(255,255,255,0.3);
         }
 
         .logo-text { 
-            font-size: 4rem; 
+            font-size: 5rem; 
             font-weight: bold; 
-            letter-spacing: 10px; 
+            letter-spacing: 12px; 
             margin: 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.4);
         }
 
         .hero-subtitle { 
-            font-size: 1.3rem; 
-            max-width: 600px; 
-            margin: 15px auto; 
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            font-size: 1.5rem; 
+            max-width: 700px; 
+            margin: 20px auto; 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+            font-style: italic;
         }
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        /* Tarjeta de descripción que sube sobre el hero */
+        /* --- DESCRIPCIÓN DE LA APP --- */
         .app-description {
             background: var(--white);
-            padding: 40px;
-            border-radius: 25px;
-            margin: -60px auto 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 30px;
+            margin: -60px auto 60px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             position: relative;
-            z-index: 10;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature-item {
             background: #fdfdff;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #f0f0f5;
+            transition: 0.3s;
         }
 
-        .feature-item h3 { color: var(--primary); margin-top: 0; }
+        .feature-item:hover { transform: translateY(-5px); }
+        .feature-item h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
 
-        /* Precios */
+        /* --- TABLA DE PRECIOS --- */
+        .pricing-section { padding: 40px 0; }
         .pricing-table {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             margin: 40px 0;
             flex-wrap: wrap;
         }
 
         .price-card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            width: 300px;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            width: 320px;
             text-align: center;
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
 
-        .price-card.featured { border-color: var(--primary); transform: scale(1.05); }
-        .price { font-size: 2.5rem; font-weight: bold; margin: 15px 0; color: var(--primary); }
+        .price-card.featured { border-color: var(--primary); transform: scale(1.05); z-index: 1; }
+        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; color: var(--primary); }
         
         .btn-paddle {
             background: var(--primary);
             color: white;
-            padding: 14px 28px;
+            padding: 16px 32px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             display: inline-block;
+            margin-top: auto;
+            transition: 0.3s;
         }
 
-        /* Legal */
+        .features-list { list-style: none; padding: 0; text-align: left; margin: 20px 0; }
+        .features-list li { margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 0.95rem; }
+        .features-list li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* --- BLOQUE LEGAL --- */
         .legal-box {
-            background: rgba(255,255,255,0.7);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 60px 0;
+            background: rgba(255,255,255,0.75);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 80px 0;
             font-size: 0.9rem;
-            border-top: 4px solid var(--primary);
+            border-top: 5px solid var(--primary);
         }
 
-        .legal-nav { text-align: center; margin-bottom: 30px; }
-        .legal-nav a { margin: 0 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        .legal-nav { text-align: center; margin-bottom: 40px; }
+        .legal-nav a { margin: 0 15px; color: var(--primary); text-decoration: none; font-weight: bold; }
         
-        footer { text-align: center; color: #777; padding: 20px; border-top: 1px solid #ddd; }
+        .legal-content h3 { border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-top: 35px; color: var(--primary); }
+        footer { margin-top: 50px; text-align: center; color: #777; border-top: 1px solid #ddd; padding-top: 30px; }
     </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <img src="./logo.jpg" alt="Logo" class="logo-img">
+    <div class="hero-section">
+        <img src="logo.jpg" alt="Logo AHORA" class="logo-img">
         <h1 class="logo-text">AHORA</h1>
         <p class="hero-subtitle">Detente. Respira. Vuelve al presente.</p>
-    </section>
+    </div>
 
     <div class="container">
         
         <section class="app-description">
-            <h2 style="text-align: center; color: var(--primary);">Tu ancla personal</h2>
-            <p>AHORA te ayuda a romper el piloto automático del día a día con una experiencia diseñada para tu bienestar.</p>
+            <h2 style="text-align: center; color: var(--primary);">Tu ancla personal hacia el presente</h2>
+            <p>AHORA es una invitación a romper el piloto automático. Diseñada con una estética minimalista, te ayuda a integrar el mindfulness en tu rutina mediante una experiencia sensorial y funcional completa.</p>
             
             <div class="features-grid">
                 <div class="feature-item">
                     <h3>🔔 Notificaciones</h3>
-                    <p>Recordatorios conscientes. En la versión Pro, personaliza tus propias frases de mindfulness.</p>
+                    <p>Recibe recordatorios que te invitan a la calma. En la versión Pro, personaliza tus propias frases para que resuenen contigo.</p>
                 </div>
                 <div class="feature-item">
                     <h3>🌬️ Respiración</h3>
-                    <p>Guías visuales (técnica 4-4-4-4) para calmar tu sistema nervioso en segundos.</p>
+                    <p>Guías visuales rítmicas (técnica 4-4-4-4) para calmar tu sistema nervioso y reducir el estrés en segundos.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🎵 Sonidos</h3>
-                    <p>Ambientes de alta fidelidad: lluvia, mar, río y el crepitar de una hoguera.</p>
+                    <h3>🎵 Paisajes Sonoros</h3>
+                    <p>Ambientes de alta fidelidad: desde el crepitar de una hoguera hasta el murmullo de un río, el mar o la lluvia.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>📊 Progreso</h3>
-                    <p>Contador de sesiones y estadísticas para ver tu evolución diaria.</p>
+                    <h3>📊 Tu Progreso</h3>
+                    <p>Registra tu compromiso con un contador de sesiones y estadísticas de tiempo dedicado a tu bienestar.</p>
                 </div>
             </div>
         </section>
 
-        <section id="precios">
-            <h2 style="text-align: center;">Planes</h2>
+        <section class="pricing-section" id="precios">
+            <h2 style="text-align: center; font-size: 2rem;">Elige tu plan</h2>
             <div class="pricing-table">
                 <div class="price-card">
                     <h3>Versión Lite</h3>
                     <p class="price">0€</p>
-                    <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
-                        <li>✔ 1 Sonido + Silencio</li>
-                        <li>✔ Frase fija (no editable)</li>
-                        <li>✔ Avisos cada 2 horas</li>
-                        <li>✔ 1 Patrón de respiración</li>
+                    <ul class="features-list">
+                        <li>1 Sonido ambiental + Silencio</li>
+                        <li>Frase única (no personalizable)</li>
+                        <li>Notificaciones fijas (cada 2 horas)</li>
+                        <li>1 Patrón de respiración básico</li>
+                        <li>Contador de meditaciones</li>
                     </ul>
+                    <p style="color: #999;">Gratis para siempre</p>
                 </div>
 
                 <div class="price-card featured">
                     <h3>Versión Pro</h3>
                     <p class="price">2,99€</p>
-                    <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
-                        <li>✨ Todos los sonidos Pro</li>
-                        <li>✨ Frases personalizables</li>
-                        <li>✨ Horarios a tu medida</li>
-                        <li>✨ Todos los patrones de respiración</li>
+                    <ul class="features-list">
+                        <li>✨ <strong>Todos los sonidos</strong> (Río, Fuego, Mar...)</li>
+                        <li>✨ <strong>Frases personalizables</strong> ilimitadas</li>
+                        <li>✨ <strong>Horarios y frecuencia</strong> a tu medida</li>
+                        <li>✨ <strong>Todos los patrones</strong> de respiración</li>
+                        <li>✨ Estadísticas detalladas de progreso</li>
                     </ul>
-                    <a href="#" class="btn-paddle">Desbloquear Pro</a>
+                    <a href="#" class="btn-paddle">Desbloquear Versión Pro</a>
                 </div>
             </div>
         </section>
@@ -209,20 +217,22 @@
                 <a href="#reembolso">Reembolsos</a>
             </nav>
 
-            <section id="terminos">
-                <h3>Términos de Servicio</h3>
-                <p>Licencia Pro personal y permanente. Soporte: unajovenmente@gmail.com.</p>
-            </section>
+            <div class="legal-content">
+                <section id="terminos">
+                    <h3>Términos de Servicio</h3>
+                    <p>Al utilizar AHORA, aceptas nuestros términos. La licencia Pro es para uso personal, permanente y no transferible. Queda prohibida la redistribución del contenido de la app.</p>
+                </section>
 
-            <section id="privacidad">
-                <h3>Política de Privacidad</h3>
-                <p>No recolectamos datos. Todo es local y privado en tu dispositivo.</p>
-            </section>
+                <section id="privacidad">
+                    <h3>Política de Privacidad</h3>
+                    <p>No recolectamos datos personales. Tus frases y registros de meditación se almacenan exclusivamente de forma local en tu dispositivo. Los pagos son gestionados por <strong>Paddle</strong>.</p>
+                </section>
 
-            <section id="reembolso">
-                <h3>Política de Reembolso</h3>
-                <p>Garantía de 14 días. Contacta con nosotros para cualquier devolución.</p>
-            </section>
+                <section id="reembolso">
+                    <h3>Política de Reembolso</h3>
+                    <p>Garantía de satisfacción: puedes solicitar un reembolso total dentro de los primeros 14 días tras la compra escribiendo a <strong>unajovenmente@gmail.com</strong>.</p>
+                </section>
+            </div>
 
             <footer>
                 <p>Soporte técnico: unajovenmente@gmail.com</p>
