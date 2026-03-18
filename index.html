@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHORA - Vuelve al presente</title>
+    <title>AHORA - Mindfulness & Bienestar Personal</title>
     <style>
         :root {
             --primary: #7b68ee;
@@ -20,18 +20,16 @@
             scroll-behavior: smooth;
         }
 
-        /* SECCIÓN HERO CON IMAGEN DE FONDO */
         .hero-section {
             position: relative;
-            background-color: #7b68ee; /* Color de respaldo si la imagen falla */
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(244,244,249,1)), url('tree.jpg?v=1');
+            background-color: #7b68ee;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(244,244,249,1)), url('tree.jpg?v=1');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             padding: 100px 20px;
             text-align: center;
             color: white;
-            min-height: 450px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,57 +37,43 @@
         }
 
         .logo-img {
-            width: 130px;
-            height: 130px;
+            width: 120px; height: 120px;
             border-radius: 50%;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             margin-bottom: 20px;
-            object-fit: cover;
             border: 3px solid white;
+            object-fit: cover;
         }
 
-        .logo-text { 
-            font-size: 4.5rem; 
-            font-weight: bold; 
-            letter-spacing: 12px; 
-            margin: 0;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
-        }
+        .logo-text { font-size: 4rem; font-weight: bold; letter-spacing: 10px; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-        .hero-subtitle { 
-            font-size: 1.4rem; 
-            max-width: 600px; 
-            margin: 15px auto; 
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
-        }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
         .app-description {
             background: var(--white);
             padding: 40px;
             border-radius: 25px;
-            margin: -60px auto 40px;
+            margin: -80px auto 40px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px; margin-top: 30px;
         }
 
-        .feature-item {
-            background: #fdfdff;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #eee;
-        }
-
+        .feature-item { background: #fdfdff; padding: 20px; border-radius: 15px; border: 1px solid #eee; }
         .feature-item h3 { color: var(--primary); margin-top: 0; }
+
+        .download-box {
+            background: #eef2ff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            border: 1px dashed var(--primary);
+        }
 
         .pricing-table {
             display: flex;
@@ -104,7 +88,7 @@
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            width: 300px;
+            width: 320px;
             text-align: center;
             border: 2px solid transparent;
         }
@@ -112,29 +96,41 @@
         .price-card.featured { border-color: var(--primary); transform: scale(1.05); }
         .price { font-size: 2.5rem; font-weight: bold; margin: 15px 0; color: var(--primary); }
         
-        .btn-paddle {
+        .btn-main {
             background: var(--primary);
             color: white;
-            padding: 14px 28px;
+            padding: 16px 32px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(123, 104, 238, 0.4);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 15px;
         }
 
         .legal-box {
-            background: rgba(255,255,255,0.7);
+            background: white;
             padding: 40px;
             border-radius: 20px;
             margin: 60px 0;
-            font-size: 0.9rem;
-            border-top: 4px solid var(--primary);
+            font-size: 0.85rem;
+            color: #555;
+            border-top: 5px solid var(--primary);
         }
 
-        .legal-nav { text-align: center; margin-bottom: 30px; }
-        .legal-nav a { margin: 0 10px; color: var(--primary); text-decoration: none; font-weight: bold; }
-        
-        footer { text-align: center; color: #777; padding: 20px; border-top: 1px solid #ddd; }
+        footer { text-align: center; color: #888; padding: 40px 20px; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
@@ -142,91 +138,102 @@
     <section class="hero-section">
         <img src="logo.jpg?v=1" alt="Logo AHORA" class="logo-img">
         <h1 class="logo-text">AHORA</h1>
-        <p class="hero-subtitle">Detente. Respira. Vuelve al presente.</p>
+        <p style="font-size: 1.2rem; max-width: 500px;">Tu herramienta personal para volver al presente a través del sonido y la respiración.</p>
+        <div style="margin-top: 25px;">
+            <a href="#descarga" class="btn-main">Empezar ahora gratis</a>
+        </div>
     </section>
 
     <div class="container">
         <section class="app-description">
-            <h2 style="text-align: center; color: var(--primary);">Tu ancla personal hacia el presente</h2>
-            <p>AHORA es una invitación a romper el piloto automático. Una app diseñada para integrar el mindfulness en tu rutina mediante una experiencia sensorial completa.</p>
+            <h2 style="text-align: center; color: var(--primary);">Desconecta del ruido, conecta contigo</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">AHORA no es solo una app, es un hábito. Diseñada para integrarse en tu día a día sin distracciones, ayudándote a gestionar el estrés mediante técnicas probadas.</p>
             
             <div class="features-grid">
                 <div class="feature-item">
-                    <h3>🔔 Notificaciones</h3>
-                    <p>Recibe recordatorios que invitan a la calma. En la versión Pro, personaliza tus frases para que resuenen contigo.</p>
+                    <h3>🔔 Pausas Conscientes</h3>
+                    <p>Recordatorios sutiles que te invitan a detenerte y observar tu estado actual.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🌬️ Respiración</h3>
-                    <p>Guías visuales rítmicas (técnica 4-4-4-4) para calmar tu sistema nervioso en segundos.</p>
+                    <h3>🌬️ Respiración 4-4-4</h3>
+                    <p>Guía visual fluida para practicar la respiración cuadrada y calmar la ansiedad.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🎵 Paisajes Sonoros</h3>
-                    <p>Ambientes de alta fidelidad: lluvia, mar, río y fuego para tus momentos de meditación.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>📊 Tu Progreso</h3>
-                    <p>Visualiza tu camino con un contador de sesiones y estadísticas de tiempo dedicado.</p>
+                    <h3>🎵 Audio Inmersivo</h3>
+                    <p>Sonidos naturales grabados para facilitar estados de relajación profunda.</p>
                 </div>
             </div>
         </section>
 
+        <section id="descarga" class="download-box">
+            <h2 style="margin-top:0;">Prueba la Versión Lite</h2>
+            <p>Descarga el instalador oficial y comienza tu práctica de mindfulness hoy mismo.</p>
+            <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1/ahora_lite.apk" class="btn-outline">⬇️ Descargar ahora_lite.apk (Gratis)</a>
+            <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">Compatible con Android 7.0 y versiones superiores.</p>
+        </section>
+
         <section id="precios">
-            <h2 style="text-align: center;">Planes</h2>
+            <h2 style="text-align: center;">Planes disponibles</h2>
             <div class="pricing-table">
                 <div class="price-card">
-                    <h3>Versión Lite</h3>
-                    <p class="price">0€</p>
-                    <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
-                        <li>✔ 1 Sonido ambiental + Silencio</li>
-                        <li>✔ Frase única (no personalizable)</li>
-                        <li>✔ Notificaciones fijas (cada 2 horas)</li>
-                        <li>✔ 1 Patrón de respiración básico</li>
-                        <li>✔ Contador de meditaciones</li>
+                    <h3>Edición Lite</h3>
+                    <p class="price">Gratis</p>
+                    <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 20px;">
+                        <li>✅ Sonido de Olas incluido</li>
+                        <li>✅ Guía visual de respiración</li>
+                        <li>✅ Recordatorios cada 2 horas</li>
+                        <li>✅ Contador de minutos</li>
                     </ul>
+                    <span style="color: #888; font-style: italic;">Actualmente instalada</span>
                 </div>
 
                 <div class="price-card featured">
-                    <h3>Versión Pro</h3>
+                    <h3>Edición PRO ✨</h3>
                     <p class="price">2,99€</p>
-                    <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
-                        <li>✨ Todos los sonidos (Río, Fuego, Mar...)</li>
-                        <li>✨ Frases personalizables ilimitadas</li>
-                        <li>✨ Control total de horarios y frecuencia</li>
-                        <li>✨ Todos los patrones de respiración</li>
-                        <li>✨ Estadísticas detalladas de progreso</li>
+                    <p style="font-size: 0.8rem; margin-top: -10px;">(Acceso vitalicio, sin suscripciones)</p>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>✨ Biblioteca completa de sonidos</li>
+                        <li>✨ Frases personalizables sin límites</li>
+                        <li>✨ Intervalos de tiempo a tu medida</li>
+                        <li>✨ Estadísticas avanzadas de paz</li>
                     </ul>
-                    <a href="#" class="btn-paddle">Desbloquear Pro</a>
+                    <p style="background: #f0f0f0; padding: 10px; border-radius: 10px; font-size: 0.8rem; color: #444;">
+                        Activación automática próximamente vía <strong>Paddle</strong>
+                    </p>
                 </div>
             </div>
         </section>
 
         <div class="legal-box">
-            <nav class="legal-nav">
-                <a href="#terminos">Términos</a>
-                <a href="#privacidad">Privacidad</a>
-                <a href="#reembolso">Reembolsos</a>
-            </nav>
-
-            <section id="terminos">
-                <h3>Términos de Servicio</h3>
-                <p>Al utilizar AHORA, aceptas nuestros términos. La licencia Pro es para uso personal, permanente y no transferible.</p>
-            </section>
-
-            <section id="privacidad">
+            <h2 style="color: var(--primary);">Cumplimiento y Transparencia</h2>
+            
+            <div id="privacidad">
                 <h3>Política de Privacidad</h3>
-                <p>No recolectamos datos personales. Todo es local y privado en tu dispositivo. Pagos gestionados por Paddle.</p>
-            </section>
+                <p><strong>Responsable:</strong> [TU NOMBRE COMPLETO]. AHORA es una aplicación diseñada bajo el principio de privacidad absoluta. No recolectamos datos personales, no rastreamos su ubicación y no utilizamos cookies de terceros. Su progreso se guarda exclusivamente en su dispositivo móvil.</p>
+            </div>
 
-            <section id="reembolso">
-                <h3>Política de Reembolso</h3>
-                <p>Garantía de satisfacción de 14 días. Contacta con <strong>unajovenmente@gmail.com</strong> para cualquier devolución.</p>
-            </section>
+            <div id="terminos">
+                <h3>Términos de Servicio</h3>
+                <p>El uso de esta aplicación es para fines de bienestar personal. La versión PRO otorga una licencia de uso perpetuo. AHORA no es una aplicación médica y no debe utilizarse como sustituto de tratamiento psicológico o médico profesional.</p>
+            </div>
 
-            <footer>
-                <p>Soporte técnico: unajovenmente@gmail.com</p>
-                <p>AHORA App - Merchant of Record: Paddle.com</p>
-            </footer>
+            <div id="reembolso">
+                <h3>Política de Devoluciones</h3>
+                <p>Ofrecemos una garantía de satisfacción. Debido a la naturaleza del contenido digital, el derecho de desistimiento finaliza con la descarga, pero si tiene problemas técnicos, le garantizamos una solución o reembolso a través de nuestro soporte.</p>
+            </div>
+
+            <div id="contacto">
+                <h3>Soporte y Contacto</h3>
+                <p>Titular: [TU NOMBRE COMPLETO]<br>
+                Email: unajovenmente@gmail.com<br>
+                Ubicación: [TU CIUDAD, PAÍS]</p>
+            </div>
         </div>
+
+        <footer>
+            <p>© 2026 AHORA App - Desarrollado con ❤️ por unajovenmente</p>
+            <p>Pagos procesados de forma segura por Paddle.com (Próximamente)</p>
+        </footer>
     </div>
 </body>
 </html>
