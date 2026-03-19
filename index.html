@@ -59,6 +59,7 @@
         }
 
         .feature-item { margin-bottom: 20px; padding: 15px; border-left: 4px solid var(--primary); background: #f9f9ff; border-radius: 0 10px 10px 0; }
+        .feature-item h3 { margin-top: 0; color: var(--primary); }
 
         .download-box {
             background: #eef2ff;
@@ -100,13 +101,14 @@
             box-shadow: 0 4px 15px rgba(123, 104, 238, 0.4);
         }
 
-        .legal-section {
+        .legal-box {
             background: white;
             padding: 40px;
             border-radius: 20px;
             margin: 40px 0;
             font-size: 0.9rem;
             color: #555;
+            line-height: 1.8;
         }
 
         footer { text-align: center; color: #888; padding: 40px 20px; border-top: 1px solid #eee; }
@@ -115,9 +117,9 @@
 <body>
 
     <section class="hero-section">
-        <img src="logo.jpg?v=1" alt="Logo" class="logo-img">
+        <img src="logo.jpg?v=1" alt="Logo AHORA" class="logo-img">
         <h1 class="logo-text">AHORA</h1>
-        <p style="font-size: 1.2rem;">Retoma el control de tu atención.</p>
+        <p style="font-size: 1.2rem;">Libérate del "piloto automático" y retoma el control de tu atención.</p>
         <div style="margin-top: 25px;">
             <a href="#descarga" class="btn-main">Descargar versión gratuita</a>
         </div>
@@ -125,72 +127,81 @@
 
     <div class="container">
         <section class="app-description">
-            <h2 style="color: var(--primary);">Funcionalidades principales</h2>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">¿Qué ofrece AHORA?</h2>
             
             <div class="feature-item">
                 <h3>📓 Diario de Gratitud (PRO)</h3>
-                <p>Un espacio privado para registrar tus agradecimientos diarios y entrenar tu mente en positivo.</p>
+                <p>Un espacio privado para registrar tus agradecimientos diarios y entrenar tu mente para enfocarse en lo positivo de cada jornada.</p>
             </div>
 
             <div class="feature-item">
                 <h3>🔔 Recordatorios Conscientes</h3>
-                <p>Pausas que te invitan a detenerte y observar tu estado actual con amabilidad.</p>
+                <p>Configura avisos que te invitan a detenerte, respirar y observar tu estado actual con amabilidad.</p>
             </div>
 
             <div class="feature-item">
                 <h3>🌬️ Guía de Respiración</h3>
-                <p>Patrones visuales diseñados para calmar el sistema nervioso en momentos de estrés.</p>
+                <p>Patrones visuales diseñados para calmar el sistema nervioso y reducir la ansiedad en segundos.</p>
             </div>
         </section>
 
         <section id="descarga" class="download-box">
             <h2>Empieza hoy</h2>
-            <p>Descarga la versión Lite para Android y comienza tu camino al presente.</p>
-            <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1/ahora_lite.apk" style="text-decoration:none; font-weight:bold; color:var(--primary);">⬇️ Descargar ahora_lite.apk</a>
+            <p>Descarga la versión Lite de forma segura y comienza tu entrenamiento mental.</p>
+            <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1/ahora_lite.apk" style="text-decoration: none; font-weight: bold; color: var(--primary);">⬇️ Descargar ahora_lite.apk (Gratis)</a>
         </section>
 
         <section id="precios">
-            <h2 style="text-align: center;">Planes</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">Planes disponibles</h2>
             <div class="pricing-table">
                 <div class="price-card">
                     <h3>Edición Lite</h3>
                     <p class="price">Gratis</p>
                     <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>✅ Sonido de Olas</li>
                         <li>✅ Respiración Cuadrada</li>
-                        <li>✅ Frase fija: Solo existe el AHORA</li>
+                        <li>✅ Frase: "Solo existe el AHORA"</li>
                         <li>✅ Recordatorios cada 2 horas</li>
                     </ul>
                 </div>
 
                 <div class="price-card featured">
-                    <h3>Edición PRO</h3>
+                    <div style="color: var(--pro-gold); font-weight: bold; font-size: 0.8rem; margin-bottom: 10px;">RECOMENDADO</div>
+                    <h3>Edición PRO ✨</h3>
                     <p class="price">2,99€</p>
                     <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li>✨ <strong>Diario de Gratitud</strong></li> <li>✨ Frases personalizadas</li>
+                        <li>✨ <strong>Diario de Gratitud</strong></li>
+                        <li>✨ Frases personalizadas</li>
                         <li>✨ Intervalos a medida</li>
-                        <li>✨ Todos los sonidos naturales</li>
+                        <li>✨ Biblioteca de sonidos completa</li>
+                        <li>✨ Todas las técnicas de respiración</li>
                     </ul>
-                    <p style="font-size: 0.7rem; margin-top: 10px;">Activación vía Paddle próximamente</p>
+                    <p style="font-size: 0.7rem; color: #666; margin-top: 15px;">Activación vía Paddle próximamente</p>
                 </div>
             </div>
         </section>
 
-        <div class="legal-section">
+        <div class="legal-box">
+            <h2 style="color: var(--primary);">Información Legal y Contacto</h2>
+            
             <h3>Privacidad</h3>
-            <p>AHORA no recopila, almacena ni comparte sus datos personales. Toda su información y registros del diario permanecen localmente en su dispositivo.</p>
+            <p>AHORA no recopila, almacena ni comparte sus datos personales. No utilizamos cookies de rastreo ni servicios de análisis externos. Toda su información y los registros del diario de gratitud permanecen exclusivamente en su dispositivo móvil.</p>
             
             <h3>Política de Reembolso</h3>
-            <p>Ofrecemos una garantía de satisfacción de 14 días. Si la versión PRO no cumple sus expectativas, puede solicitar un reembolso completo a través de Paddle.</p>
+            <p>Ofrecemos una garantía de satisfacción total de 14 días para la versión PRO. Si la aplicación no cumple con sus expectativas, puede solicitar un reembolso completo sin dar explicaciones a través de la plataforma Paddle.</p>
             
             <h3>Términos del Servicio</h3>
-            <p>El uso de esta aplicación es para fines de bienestar personal. No sustituye tratamiento médico o psicológico profesional.</p>
+            <p>Esta aplicación es una herramienta de bienestar personal y mindfulness. No debe considerarse como sustituto de asesoramiento médico, diagnóstico o tratamiento psicológico profesional.</p>
             
             <h3>Contacto</h3>
-            <p>Susana Borrego Fuentes<br>unajovenmente@gmail.com<br>Málaga, España</p>
+            <p><strong>Desarrolladora:</strong> Susana Borrego Fuentes<br>
+            <strong>Email:</strong> unajovenmente@gmail.com<br>
+            <strong>Ubicación:</strong> Málaga, España<br>
+            <strong>Redes:</strong> @loquenomecontaron.pod</p>
         </div>
 
         <footer>
-            <p>© 2026 AHORA App - @loquenomecontaron.pod</p>
+            <p>© 2026 AHORA App - Merchant of Record: Paddle.com</p>
         </footer>
     </div>
 </body>
