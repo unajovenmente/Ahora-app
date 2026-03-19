@@ -58,6 +58,15 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+
+        .feature-item { background: #fdfdff; padding: 20px; border-radius: 15px; border: 1px solid #eee; }
+        .feature-item h3 { color: var(--primary); margin-top: 0; }
+
         .pro-deep-dive {
             background: #1a1a2e;
             color: white;
@@ -153,6 +162,21 @@
         <section class="app-description">
             <h2 style="text-align: center; color: var(--primary);">Tu ancla al presente</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #666;">Diseñada para quienes sienten que el día se les escapa entre preocupaciones. AHORA utiliza intervalos de tiempo y sonidos naturales para recordarte que la vida solo ocurre en este instante.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>📓 Diario de Gratitud</h3>
+                    <p>Un espacio seguro y privado para registrar tus agradecimientos diarios y entrenar tu mente en positivo.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔔 Recordatorios</h3>
+                    <p>Pausas conscientes que te invitan a detenerte y observar tu estado actual con amabilidad.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🌬️ Respiración</h3>
+                    <p>Guía visual fluida para practicar patrones de respiración que calman la ansiedad al instante.</p>
+                </div>
+            </div>
         </section>
 
         <section class="pro-deep-dive">
@@ -161,20 +185,20 @@
             
             <div class="pro-grid">
                 <div class="pro-feature-card">
-                    <h3>📓 Diario de Gratitud</h3>
+                    <h3>📓 Diario de Gratitud Avanzado</h3>
                     <p>Entrena tu mente para detectar la abundancia en lo cotidiano. En la versión PRO, dispones de un espacio privado para registrar tus agradecimientos diarios, transformando tu enfoque mental de la carencia a la gratitud.</p>
                 </div>
                 <div class="pro-feature-card">
                     <h3>✍️ Tu Voz, Tu Subconsciente</h3>
-                    <p>En la versión PRO, las notificaciones no son genéricas. Puedes escribir <strong>tus propias afirmaciones o frases</strong>. Como el subconsciente procesa mejor lo que es personal, recibir tus propias palabras maximiza el impacto del mensaje.</p>
+                    <p>En la versión PRO, puedes escribir <strong>tus propias afirmaciones</strong>. Recibir tus propias palabras maximiza el impacto del mensaje en tu subconsciente.</p>
                 </div>
                 <div class="pro-feature-card">
                     <h3>⏱️ Libertad de Intervalos</h3>
-                    <p>No más límites de 2 horas. Configura recordatorios cada 15 minutos para días de alta tensión, o cada 4 horas para un mantenimiento suave. <strong>Tú decides cuándo necesitas volver al centro.</strong></p>
+                    <p>Configura recordatorios cada 15 minutos o cada 4 horas. <strong>Tú decides cuándo necesitas volver al centro.</strong></p>
                 </div>
                 <div class="pro-feature-card">
-                    <h3>🧘 Patrones de Respiración</h3>
-                    <p>Acceso a la biblioteca completa de técnicas: <strong>4-7-8</strong> para dormir mejor, <strong>6-2-4</strong> para enfoque máximo o la posibilidad de crear tu propio ritmo respiratorio personalizado.</p>
+                    <h3>🧘 Biblioteca de Respiración</h3>
+                    <p>Acceso a técnicas avanzadas: <strong>4-7-8</strong> para el sueño o <strong>6-2-4</strong> para el enfoque, además de ritmos personalizados.</p>
                 </div>
             </div>
             
@@ -209,7 +233,8 @@
                     <h3>Edición PRO ✨</h3>
                     <p class="price">2,99€</p>
                     <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
-                        <li>✨ <strong>Diario de Gratitud Personalizado</strong></li> <li>✨ <strong>Frases ilimitadas y personalizadas</strong></li>
+                        <li>✨ <strong>Diario de Gratitud Personalizado</strong></li>
+                        <li>✨ <strong>Frases ilimitadas y personalizadas</strong></li>
                         <li>✨ <strong>Intervalos a medida (minutos u horas)</strong></li>
                         <li>✨ <strong>Todos los sonidos de naturaleza</strong></li>
                         <li>✨ <strong>Toda la biblioteca de respiración</strong></li>
