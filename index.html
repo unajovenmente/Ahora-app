@@ -85,6 +85,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             width: 320px;
             text-align: center;
+            border: 1px solid #eee;
         }
 
         .price-card.featured { border: 2px solid var(--pro-gold); transform: scale(1.05); }
@@ -101,14 +102,14 @@
             box-shadow: 0 4px 15px rgba(123, 104, 238, 0.4);
         }
 
-        .legal-box {
+        .legal-section {
             background: white;
             padding: 40px;
             border-radius: 20px;
             margin: 40px 0;
             font-size: 0.9rem;
             color: #555;
-            line-height: 1.8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         footer { text-align: center; color: #888; padding: 40px 20px; border-top: 1px solid #eee; }
@@ -127,11 +128,11 @@
 
     <div class="container">
         <section class="app-description">
-            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">¿Qué ofrece AHORA?</h2>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Funcionalidades de la App</h2>
             
             <div class="feature-item">
                 <h3>📓 Diario de Gratitud (PRO)</h3>
-                <p>Un espacio privado para registrar tus agradecimientos diarios y entrenar tu mente para enfocarse en lo positivo de cada jornada.</p>
+                <p>Entrena tu mente para detectar la abundancia en lo cotidiano. Un espacio privado para registrar tus agradecimientos diarios y transformar tu enfoque mental.</p>
             </div>
 
             <div class="feature-item">
@@ -141,13 +142,13 @@
 
             <div class="feature-item">
                 <h3>🌬️ Guía de Respiración</h3>
-                <p>Patrones visuales diseñados para calmar el sistema nervioso y reducir la ansiedad en segundos.</p>
+                <p>Patrones visuales fluidos diseñados para calmar el sistema nervioso y reducir la ansiedad en segundos.</p>
             </div>
         </section>
 
         <section id="descarga" class="download-box">
-            <h2>Empieza hoy</h2>
-            <p>Descarga la versión Lite de forma segura y comienza tu entrenamiento mental.</p>
+            <h2>Empieza hoy con la Edición Lite</h2>
+            <p>Descarga el APK de forma segura y comienza tu entrenamiento mental.</p>
             <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1/ahora_lite.apk" style="text-decoration: none; font-weight: bold; color: var(--primary);">⬇️ Descargar ahora_lite.apk (Gratis)</a>
         </section>
 
@@ -159,21 +160,20 @@
                     <p class="price">Gratis</p>
                     <ul style="list-style: none; padding: 0; text-align: left;">
                         <li>✅ Sonido de Olas</li>
-                        <li>✅ Respiración Cuadrada</li>
+                        <li>✅ Respiración Cuadrada (4-4-4)</li>
                         <li>✅ Frase: "Solo existe el AHORA"</li>
                         <li>✅ Recordatorios cada 2 horas</li>
                     </ul>
                 </div>
 
                 <div class="price-card featured">
-                    <div style="color: var(--pro-gold); font-weight: bold; font-size: 0.8rem; margin-bottom: 10px;">RECOMENDADO</div>
                     <h3>Edición PRO ✨</h3>
                     <p class="price">2,99€</p>
                     <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li>✨ <strong>Diario de Gratitud</strong></li>
-                        <li>✨ Frases personalizadas</li>
-                        <li>✨ Intervalos a medida</li>
-                        <li>✨ Biblioteca de sonidos completa</li>
+                        <li>✨ <strong>Diario de Gratitud Personalizado</strong></li>
+                        <li>✨ Frases y afirmaciones ilimitadas</li>
+                        <li>✨ Intervalos de tiempo a medida</li>
+                        <li>✨ Biblioteca completa de sonidos</li>
                         <li>✨ Todas las técnicas de respiración</li>
                     </ul>
                     <p style="font-size: 0.7rem; color: #666; margin-top: 15px;">Activación vía Paddle próximamente</p>
@@ -181,23 +181,25 @@
             </div>
         </section>
 
-        <div class="legal-box">
-            <h2 style="color: var(--primary);">Información Legal y Contacto</h2>
-            
-            <h3>Privacidad</h3>
-            <p>AHORA no recopila, almacena ni comparte sus datos personales. No utilizamos cookies de rastreo ni servicios de análisis externos. Toda su información y los registros del diario de gratitud permanecen exclusivamente en su dispositivo móvil.</p>
-            
-            <h3>Política de Reembolso</h3>
-            <p>Ofrecemos una garantía de satisfacción total de 14 días para la versión PRO. Si la aplicación no cumple con sus expectativas, puede solicitar un reembolso completo sin dar explicaciones a través de la plataforma Paddle.</p>
-            
-            <h3>Términos del Servicio</h3>
-            <p>Esta aplicación es una herramienta de bienestar personal y mindfulness. No debe considerarse como sustituto de asesoramiento médico, diagnóstico o tratamiento psicológico profesional.</p>
-            
-            <h3>Contacto</h3>
-            <p><strong>Desarrolladora:</strong> Susana Borrego Fuentes<br>
-            <strong>Email:</strong> unajovenmente@gmail.com<br>
-            <strong>Ubicación:</strong> Málaga, España<br>
-            <strong>Redes:</strong> @loquenomecontaron.pod</p>
+        <div class="legal-section">
+            <div style="padding: 20px;">
+                <h2 style="color: var(--primary);">Información Legal y Contacto</h2>
+                
+                <h3>Privacidad</h3>
+                <p>AHORA no recopila, almacena ni comparte sus datos personales. No utilizamos cookies de rastreo ni servicios de análisis externos. Toda su información y los registros del diario de gratitud permanecen exclusivamente en su dispositivo móvil.</p>
+                
+                <h3>Política de Reembolso</h3>
+                <p>Ofrecemos una garantía de satisfacción total de 14 días para la versión PRO. Si la aplicación no cumple con sus expectativas, puede solicitar un reembolso completo a través de la plataforma Paddle.</p>
+                
+                <h3>Términos del Servicio</h3>
+                <p>Esta aplicación es una herramienta de bienestar personal y mindfulness. No debe considerarse como sustituto de asesoramiento médico, diagnóstico o tratamiento psicológico profesional.</p>
+                
+                <h3>Contacto</h3>
+                <p><strong>Desarrolladora:</strong> Susana Borrego Fuentes<br>
+                <strong>Email:</strong> unajovenmente@gmail.com<br>
+                <strong>Ubicación:</strong> Málaga, España<br>
+                <strong>Redes:</strong> @loquenomecontaron.pod</p>
+            </div>
         </div>
 
         <footer>
