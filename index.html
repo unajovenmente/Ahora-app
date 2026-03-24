@@ -3,282 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHORA - Mindfulness & Bienestar Personal</title>
+    <title>AHORA - Mindfulness & Bienestar Digital</title>
     <style>
         :root {
             --primary: #7b68ee;
             --secondary: #e91e63;
-            --pro-gold: #ffd700;
             --dark: #1a1a1a;
-            --text: #333;
             --white: #ffffff;
             --light: #f4f4f9;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             line-height: 1.6;
-            color: var(--text);
+            color: #333;
             background-color: var(--light);
             scroll-behavior: smooth;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), var(--light)), url('tree.jpg?v=1');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 20px;
-            text-align: center;
-            color: white;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-img {
-            width: 140px; height: 140px;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            margin-bottom: 25px;
-            border: 4px solid white;
-            object-fit: cover;
-        }
-
-        .logo-text { font-size: 4.5rem; font-weight: 900; letter-spacing: 12px; margin: 0; text-shadow: 3px 3px 15px rgba(0,0,0,0.6); }
-
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-        /* Tarjetas de Producto */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: -60px auto 60px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover { transform: translateY(-10px); }
-
-        .feature-item { margin-bottom: 15px; padding-left: 10px; border-left: 3px solid var(--primary); }
-
-        /* Sección Libro */
-        .book-section {
-            background: var(--dark);
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('tree.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 80px 40px;
-            border-radius: 40px;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        /* Galería de Pantallazos */
+        .screenshot-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 20px 0;
+            scrollbar-width: thin;
+        }
+
+        .screenshot-gallery img {
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Secciones de Producto */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
             margin: 40px 0;
             display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
         }
 
-        .book-img {
-            width: 250px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border-radius: 5px;
-        }
-
-        /* Pricing */
-        .pricing-container {
-            text-align: center;
-            padding: 60px 0;
-        }
-
-        .pricing-table {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .price-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 25px;
-            width: 300px;
-            border: 1px solid #eee;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-card.featured {
-            border: 3px solid var(--primary);
-            box-shadow: 0 15px 45px rgba(123, 104, 238, 0.2);
-        }
-
-        .badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; color: var(--dark); }
-        .price span { font-size: 1rem; color: #777; }
+        .product-info { flex: 2; min-width: 300px; }
+        .product-image { flex: 1; min-width: 250px; text-align: center; }
+        .product-image img { width: 100%; max-width: 250px; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
         /* Botones */
         .btn {
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            transition: all 0.3s;
-            text-align: center;
-            border: none;
-            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
         }
 
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(123, 104, 238, 0.3); }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
-        .btn-book { background: var(--secondary); color: white; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { background: var(--secondary); color: white; }
+
+        .price { font-size: 1.5rem; font-weight: bold; color: var(--dark); margin: 10px 0; }
 
         footer {
-            background: #f8f9fa;
-            padding: 60px 20px;
+            background: #f1f1f1;
+            padding: 50px 20px;
             text-align: center;
-            border-top: 1px solid #eee;
-            margin-top: 80px;
+            border-top: 1px solid #ddd;
         }
 
-        .footer-links { margin: 20px 0; }
-        .footer-links a { margin: 0 15px; color: #666; text-decoration: none; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--primary); }
-
+        .legal-links a { margin: 0 10px; color: #666; text-decoration: none; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <img src="logo.jpg?v=1" alt="Logo AHORA" class="logo-img">
-        <h1 class="logo-text">AHORA</h1>
-        <p style="font-size: 1.4rem; max-width: 600px;">Herramientas digitales para mentes inquietas. <br>Mindfulness, presencia y calma.</p>
+    <section class="hero">
+        <h1>AHORA</h1>
+        <p>Herramientas para la paz mental y el control de la atención.</p>
     </section>
 
     <div class="container">
-        <div class="product-grid">
-            <div class="card">
-                <h2 style="color: var(--primary);">Software: App AHORA</h2>
-                <p>Una aplicación diseñada para romper el ciclo de la rumiación mental a través de técnicas probadas.</p>
-                <div class="feature-item"><strong>Diario de Gratitud:</strong> Registro privado de abundancia.</div>
-                <div class="feature-item"><strong>Bio-Feedback visual:</strong> Guías de respiración profunda.</div>
-                <div class="feature-item"><strong>Recordatorios:</strong> Frases de reprogramación mental.</div>
-                <a href="#precios" class="btn btn-primary" style="margin-top: 20px; width: 80%;">Ver opciones</a>
+        
+        <div id="app" class="product-card">
+            <div class="product-info">
+                <h2 style="color: var(--primary);">App AHORA (Software)</h2>
+                <p>Tu compañera diaria para reducir el estrés. Incluye diario de gratitud, guías de respiración y recordatorios conscientes para evitar el "piloto automático".</p>
+                <div class="price">Licencia PRO: 2,99€</div>
+                <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-primary">Descargar Versión Lite (Gratis)</a>
+                <p style="font-size: 0.8rem; color: #888;">* La activación PRO se realiza mediante llave digital tras la compra.</p>
             </div>
-
-            <div class="card">
-                <h2 style="color: var(--secondary);">E-Book: Deja de comerte el Coco</h2>
-                <p>La guía definitiva para entender por qué te preocupas demasiado y cómo liberar espacio mental.</p>
-                <div class="feature-item"><strong>Estrategias:</strong> Técnicas para detener el pensamiento intrusivo.</div>
-                <div class="feature-item"><strong>Práctico:</strong> Ejercicios aplicables desde el primer día.</div>
-                <div class="feature-item"><strong>Digital:</strong> Formato PDF/ePub compatible con Kindle y móviles.</div>
-                <a href="#libro" class="btn btn-book" style="margin-top: 20px; width: 80%;">Saber más</a>
+            <div class="product-image">
+                <img src="principal.jpg" alt="App AHORA">
             </div>
         </div>
 
-        <section id="libro" class="book-section">
-            <div style="flex: 1; min-width: 300px;">
-                <img src="book_cover.jpg" alt="Portada Libro" class="book-img"> </div>
-            <div style="flex: 2; min-width: 300px;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Deja de comerte el Coco</h2>
-                <h3 style="color: var(--secondary); font-weight: normal;">Libérate de la Preocupación</h3>
-                <p>¿Sientes que tu mente no tiene un botón de apagado? En este libro digital, Susana Borrego te enseña a identificar las trampas de tu cerebro y a construir una relación más sana con tus pensamientos.</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li>✨ Descarga instantánea en formato digital.</li>
-                    <li>✨ Incluye cuaderno de ejercicios imprimible.</li>
-                </ul>
-                <div class="price" style="color: white;">9,95€</div>
-                <a href="#" class="btn btn-book">Comprar E-book (PDF)</a>
+        <h3 style="text-align: center;">Explora la Interfaz</h3>
+        <div class="screenshot-gallery">
+            <img src="principal.jpg" alt="Pantalla Principal">
+            <img src="momento.jpg" alt="Momento Mindfulness">
+            <img src="respiraciones.jpg" alt="Respiración Guiada">
+            <img src="diario.jpg" alt="Diario de Gratitud">
+            <img src="ajustes.jpg" alt="Ajustes">
+            <img src="historial.jpg" alt="Historial">
+            <img src="frases.jpg" alt="Mis Frases">
+        </div>
+
+        <div id="libro" class="product-card" style="border-left: 8px solid var(--secondary);">
+            <div class="product-image">
+                <img src="book_cover.jpg" alt="Libro Deja de comerte el coco">
             </div>
-        </section>
-
-        <section id="precios" class="pricing-container">
-            <h2>Nuestras Licencias Digitales</h2>
-            <p>Selecciona el producto que mejor se adapte a tu camino actual.</p>
-            
-            <div class="pricing-table">
-                <div class="price-card">
-                    <h3>App AHORA Lite</h3>
-                    <div class="price">0€</div>
-                    <p style="flex-grow: 1;">Funciones esenciales para comenzar a practicar hoy mismo.</p>
-                    <ul style="text-align: left; padding: 0 20px; list-style: none; font-size: 0.9rem;">
-                        <li>✅ Sonido de Olas</li>
-                        <li>✅ Respiración 4-4-4</li>
-                        <li>✅ Recordatorios fijos</li>
-                    </ul>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-outline">Descargar APK</a>
-                </div>
-
-                <div class="price-card featured">
-                    <div class="badge">RECOMENDADO</div>
-                    <h3>App AHORA PRO</h3>
-                    <div class="price">2,99€</div>
-                    <p style="flex-grow: 1;">Licencia vitalicia para la experiencia completa de mindfulness.</p>
-                    <ul style="text-align: left; padding: 0 20px; list-style: none; font-size: 0.9rem;">
-                        <li>✨ Diario de Gratitud PRO</li>
-                        <li>✨ Todos los sonidos ambientales</li>
-                        <li>✨ Intervalos personalizados</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Comprar Licencia</a>
-                </div>
-
-                <div class="price-card">
-                    <h3>E-book Completo</h3>
-                    <div class="price">9,95€</div>
-                    <p style="flex-grow: 1;">El libro digital y guía de ejercicios en formato PDF.</p>
-                    <ul style="text-align: left; padding: 0 20px; list-style: none; font-size: 0.9rem;">
-                        <li>📖 E-book alta resolución</li>
-                        <li>📖 Guía de ejercicios</li>
-                        <li>📖 Lectura multiplataforma</li>
-                    </ul>
-                    <a href="#" class="btn btn-book">Comprar E-book</a>
-                </div>
+            <div class="product-info">
+                <h2 style="color: var(--secondary);">E-Book: Deja de comerte el coco</h2>
+                <p><strong>Libérate de la preocupación.</strong> Una guía práctica en formato digital (PDF) para entender tus procesos mentales y encontrar la calma en el caos diario.</p>
+                <div class="price">Precio Digital: 9,95€</div>
+                <a href="https://github.com/unajovenmente/Ahora-app/releases/tag/untagged-78e1ecc797663d0a0585" class="btn btn-secondary">Comprar E-Book (PDF)</a>
             </div>
-        </section>
+        </div>
 
-        <footer>
-            <div class="container">
-                <p><strong>AHORA - Bienestar Digital</strong></p>
-                <p>Desarrollado por Susana Borrego Fuentes | unajovenmente@gmail.com</p>
-                <p>Málaga, España</p>
-                
-                <div class="footer-links">
-                    <a href="#legal">Términos y Condiciones</a> |
-                    <a href="#legal">Política de Privacidad</a> |
-                    <a href="#legal">Política de Reembolso</a>
-                </div>
-
-                <div id="legal" style="max-width: 800px; margin: 40px auto; text-align: left; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; padding-top: 20px;">
-                    <p><strong>Información importante:</strong> Los productos vendidos en este sitio son productos digitales (licencias de software y contenido descargable). Al realizar la compra, recibirá una clave de activación o un enlace de descarga.</p>
-                    <p><strong>Garantía:</strong> Ofrecemos 14 días de devolución para todos nuestros productos digitales si no está satisfecho.</p>
-                    <p><strong>Merchant of Record:</strong> Paddle.com es el distribuidor autorizado y responsable de los pagos en este sitio.</p>
-                </div>
-
-                <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 AHORA. Todos los derechos reservados.</p>
-            </div>
-        </footer>
     </div>
+
+    <footer>
+        <p><strong>Susana B. Fuentes</strong> - Creadora de Contenido y Desarrolladora</p>
+        <p>Málaga, España | unajovenmente@gmail.com</p>
+        <div class="legal-links">
+            <a href="terms.html">Términos y Condiciones</a>
+            <a href="privacy.html">Política de Privacidad</a>
+            <a href="refunds.html">Política de Reembolso</a>
+        </div>
+        <div style="margin-top: 30px; font-size: 0.8rem; color: #999; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p>Paddle.com es el Merchant of Record (Distribuidor Autorizado) de nuestros productos digitales. Los productos (Software y E-books) se entregan de forma inmediata tras el pago.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
