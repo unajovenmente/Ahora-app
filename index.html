@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHORA | Método de Bienestar Mental por Susana B. Fuentes</title>
+    <title>AHORA | Bienestar Digital por Susana B. Fuentes</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,7 @@
             --white: #ffffff;
         }
 
-        * { box-sizing: border-box; outline: none; }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
@@ -27,50 +27,27 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+        /* HEADER */
+        header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; font-style: italic; }
+        nav a { text-decoration: none; color: var(--slate); font-weight: 600; margin-left: 20px; font-size: 0.95rem; }
+
         /* HERO */
         .hero {
-            padding: 120px 0 80px;
+            padding: 100px 0 80px;
             text-align: center;
             background: radial-gradient(circle at top right, #eef2ff, var(--bg));
         }
         .hero h1 { 
             font-family: 'Lora', serif; 
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-size: clamp(2.2rem, 6vw, 4rem); 
             margin-bottom: 25px;
             font-style: italic;
+            line-height: 1.1;
         }
-        .hero p { font-size: 1.3rem; color: var(--slate); max-width: 800px; margin: 0 auto 50px; }
+        .hero p { font-size: 1.25rem; color: var(--slate); max-width: 800px; margin: 0 auto 50px; }
 
-        /* TABLA DE PRECIOS Y COMPARATIVA (LITE VS PRO) */
-        .pricing-box {
-            background: var(--white);
-            border-radius: 30px;
-            padding: 40px;
-            margin: 60px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        .pricing-table th, .pricing-table td {
-            padding: 20px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .pricing-table th {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--slate);
-        }
-        .col-pro { background: #f5f3ff; font-weight: 700; color: var(--primary); border-radius: 15px 15px 0 0; }
-        .check { color: #10b981; font-weight: bold; }
-        .cross { color: #f43f5e; font-weight: bold; }
-
-        /* SECCIONES DE PRODUCTO */
+        /* PRODUCT BOXES */
         .product-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -83,12 +60,33 @@
 
         .image-side img { width: 100%; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 
-        /* BOTONES */
-        .btn-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        /* COMPARISON TABLE */
+        .pricing-box {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+        }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+        .pricing-table th, .pricing-table td { padding: 15px 10px; border-bottom: 1px solid #f1f5f9; }
+        .col-pro { background: #f5f3ff; font-weight: 700; color: var(--primary); }
+        .check { color: #10b981; font-weight: bold; }
+        .cross { color: #f43f5e; font-weight: bold; }
+
+        /* BUTTONS */
+        .btn-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
         .btn {
             display: inline-block;
-            padding: 20px 35px;
-            border-radius: 15px;
+            padding: 18px 30px;
+            border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
             transition: 0.3s;
@@ -96,21 +94,35 @@
         }
         .btn-lite { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
         .btn-pro { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3); }
-        .btn-book { background: var(--secondary); color: white; box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3); }
-        .btn:hover { transform: translateY(-4px); opacity: 0.95; }
+        .btn-book { background: var(--secondary); color: white; box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3); width: 100%; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.95; }
 
         /* FOOTER */
-        footer { background: #0f172a; color: #94a3b8; padding: 100px 0 50px; text-align: center; }
-        .legal-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; }
-        .badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 10px; }
+        footer { background: #0f172a; color: #94a3b8; padding: 80px 0 40px; text-align: center; }
+        .footer-links { margin: 30px 0; }
+        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; font-weight: 600; }
+        .footer-links a:hover { text-decoration: underline; }
+        
+        .contact-box { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; max-width: 600px; margin: 40px auto; color: #fff; }
     </style>
 </head>
 <body>
 
+    <div class="container">
+        <header>
+            <a href="#" class="logo">AHORA</a>
+            <nav>
+                <a href="#app">La App</a>
+                <a href="#libro">El Libro</a>
+                <a href="mailto:unajovenmente@gmail.com">Soporte</a>
+            </nav>
+        </header>
+    </div>
+
     <section class="hero">
         <div class="container">
-            <h1 style="color:var(--dark);">Entrena tu calma con el ecosistema <span style="color:var(--primary);">AHORA</span></h1>
-            <p>Herramientas digitales diseñadas por Susana B. Fuentes para silenciar el ruido mental y recuperar el control de tu atención.</p>
+            <h1>Libera tu mente,<br><span style="color:var(--primary);">habita el presente.</span></h1>
+            <p>Ecosistema de herramientas digitales creadas por <strong>Susana B. Fuentes</strong> para combatir la rumiación y el estrés mental.</p>
         </div>
     </section>
 
@@ -121,16 +133,16 @@
                 <img src="principal.jpg" alt="App AHORA">
             </div>
             <div class="info-side">
-                <span class="badge" style="background: #eef2ff; color: var(--primary);">SOFTWARE DE BIENESTAR</span>
-                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">App AHORA</h2>
-                <p>Mucho más que una app de meditación: es un entrenador de atención personal diseñado para interrumpir la rumiación mental en segundos.</p>
+                <span style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Software de Bienestar</span>
+                <h2 style="font-family:'Lora', serif; font-size:2.5rem; margin:10px 0;">App AHORA</h2>
+                <p>Un entrenador de atención en tu bolsillo. Gestiona tu ansiedad con herramientas de bio-feedback y reprogramación mental.</p>
                 
                 <div class="pricing-box">
                     <table class="pricing-table">
                         <thead>
                             <tr>
                                 <th>Funciones</th>
-                                <th>Lite</th>
+                                <th>LITE</th>
                                 <th class="col-pro">PRO</th>
                             </tr>
                         </thead>
@@ -146,26 +158,25 @@
                                 <td class="col-pro check">✓ Personalizables</td>
                             </tr>
                             <tr>
-                                <td>Respiración Guía</td>
+                                <td>Guías de Respiración</td>
                                 <td>1 Nivel</td>
-                                <td class="col-pro check">✓ 3 Niveles Pro</td>
+                                <td class="col-pro check">✓ 3 Niveles</td>
                             </tr>
                             <tr>
-                                <td>Historial y Logros</td>
+                                <td>Historial de Logros</td>
                                 <td class="cross">✕</td>
                                 <td class="col-pro check">✓ Incluido</td>
                             </tr>
                             <tr>
                                 <td><strong>Precio</strong></td>
-                                <td><strong>Gratis</strong></td>
+                                <td><strong>0,00€</strong></td>
                                 <td class="col-pro"><strong>2,99€</strong></td>
                             </tr>
                         </tbody>
                     </table>
                     
                     <div class="btn-container">
-                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite">Probar Gratis (Versión Lite)</a>
-                        
+                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite">Bajar Versión Lite (Gratis)</a>
                         <a href="#" class="btn btn-pro">Comprar Licencia Pro (2,99€)</a>
                     </div>
                 </div>
@@ -174,42 +185,60 @@
 
         <section id="libro" class="product-grid" style="border-top: 2px solid #e2e8f0; margin-top: 40px;">
             <div class="info-side">
-                <span class="badge" style="background: #fff1f5; color: var(--secondary);">CONTENIDO EDITORIAL</span>
-                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:15px 0;">Deja de comerte el coco</h2>
-                <p><strong>Libérate de la preocupación de forma definitiva.</strong> Esta guía práctica te enseña a desmantelar los hábitos de pensamiento que agotan tu energía mental.</p>
+                <span style="color:var(--secondary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Contenido Editorial</span>
+                <h2 style="font-family:'Lora', serif; font-size:2.5rem; margin:10px 0;">Deja de comerte el coco</h2>
+                <p><strong>Libérate de la preocupación.</strong> La guía definitiva para desmantelar los hábitos de pensamiento intrusivo y el agotamiento mental.</p>
                 
-                <ul style="list-style: none; padding: 0; margin: 30px 0;">
-                    <li style="margin-bottom: 15px;">✦ <strong>Doble formato:</strong> Pack que incluye archivos PDF y EPUB.</li>
-                    <li style="margin-bottom: 15px;">✦ <strong>Método Práctico:</strong> Ejercicios guiados paso a paso.</li>
-                    <li style="margin-bottom: 15px;">✦ <strong>Entrega Digital:</strong> Acceso inmediato tras la compra.</li>
+                <ul style="list-style: none; padding: 0; margin: 30px 0; font-size: 1rem;">
+                    <li style="margin-bottom: 12px;">✦ <strong>Pack Digital:</strong> Incluye archivos PDF y EPUB.</li>
+                    <li style="margin-bottom: 12px;">✦ <strong>Método Práctico:</strong> Ejercicios para frenar la rumiación.</li>
+                    <li style="margin-bottom: 12px;">✦ <strong>Entrega Inmediata:</strong> Por email tras el pago.</li>
                 </ul>
 
                 <div style="background: #fff; padding: 30px; border-radius: 20px; border: 2px dashed var(--secondary); text-align: center;">
-                    <div style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 10px;">3,99€</div>
-                    <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 20px;">Incluye Licencia Digital para PDF + EPUB</p>
+                    <div style="font-size: 2.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 5px;">3,99€</div>
+                    <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 25px;">Licencia para PDF + EPUB</p>
                     
-                    <a href="#" class="btn btn-book" style="width: 100%;">Comprar Libro Digital Ahora</a>
+                    <a href="#" class="btn btn-book">Comprar Libro Digital Ahora</a>
                 </div>
             </div>
-            <div class="image-side" style="text-align: right;">
-                <img src="portada_libro.jpg" alt="Portada Libro" style="max-width: 400px;">
+            <div class="image-side">
+                <img src="portada_libro.jpg" alt="Portada Libro">
             </div>
         </section>
 
     </div>
 
+    <div style="background: #fff; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="font-family:'Lora', serif; font-size: 1.8rem; margin-bottom: 10px;">¿Dudas con tu compra?</h3>
+            <p style="color: var(--slate);">Si necesitas soporte técnico o ayuda con tu pedido, escríbeme:</p>
+            <a href="mailto:unajovenmente@gmail.com" style="font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none;">unajovenmente@gmail.com</a>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <h2 style="color:white; font-family:'Lora', serif; font-style:italic; font-size: 2.5rem;">AHORA</h2>
-            <p>Diseño y Desarrollo por Susana B. Fuentes | Málaga, España</p>
-            <div class="legal-links" style="margin: 40px 0;">
-                <a href="privacy.html">Privacidad</a> | 
-                <a href="terms.html">Términos de Servicio</a> | 
-                <a href="refunds.html">Política de Reembolso</a>
+            <h2 style="color:white; font-family:'Lora', serif; font-style:italic; font-size: 2.2rem; margin-bottom: 10px;">AHORA</h2>
+            <p style="color: #fff; font-weight: 600; margin: 0;">Susana B. Fuentes | Bienestar Digital</p>
+            
+            <div class="footer-links">
+                <a href="privacy.html">Privacidad</a>
+                <a href="terms.html">Términos</a>
+                <a href="refunds.html">Reembolsos</a>
             </div>
-            <p style="font-size: 0.8rem; opacity: 0.6; max-width: 700px; margin: 0 auto;">
-                Merchant of Record: Paddle.com. Los productos digitales se entregan de forma inmediata vía correo electrónico tras la validación del pago.
-            </p>
+            
+            <div class="contact-box">
+                <p style="font-size: 0.9rem; margin: 0;">
+                    <strong>Contacto Oficial:</strong> <a href="mailto:unajovenmente@gmail.com" style="color: #fff;">unajovenmente@gmail.com</a><br>
+                    Málaga, España. <br><br>
+                    <small style="opacity: 0.7;">
+                        Merchant of Record: Paddle.com. Como distribuidor oficial, Paddle gestiona la facturación y entrega segura de nuestros productos digitales.
+                    </small>
+                </p>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.4;">© 2026 AHORA. Todos los derechos reservados.</p>
         </div>
     </footer>
 
