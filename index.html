@@ -3,264 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHORA | Mindfulness & Bienestar Digital por Susana B. Fuentes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>AHORA | Libera tu mente con Susana B. Fuentes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #7b68ee;
+            --primary: #7b68ee;
             --secondary: #e91e63;
-            --dark: #0f172a;
-            --slate: #64748b;
-            --light: #f8fafc;
-            --white: #ffffff;
+            --bg: #fafafa;
+            --text: #1a1a1c;
+            --slate: #5e5e6e;
         }
 
         * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            line-height: 1.7;
-            color: var(--dark);
-            background-color: var(--light);
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
             scroll-behavior: smooth;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER & HERO */
-        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 4px; color: var(--accent); text-decoration: none; }
-
+        /* HERO PERSUASIVO */
         .hero {
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
-            background: radial-gradient(circle at top, #eeebff 0%, var(--light) 70%);
+            background: linear-gradient(180deg, #f0edff 0%, var(--bg) 100%);
         }
         .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 5vw, 4.5rem); 
-            margin: 0 0 20px; 
-            line-height: 1.1;
+            font-family: 'Lora', serif; 
+            font-size: clamp(2.2rem, 5vw, 4rem); 
+            margin-bottom: 20px;
+            font-style: italic;
         }
-        .hero p { font-size: 1.3rem; color: var(--slate); max-width: 700px; margin: 0 auto 50px; }
+        .hero p { font-size: 1.2rem; color: var(--slate); max-width: 700px; margin: 0 auto 40px; }
 
-        /* PRODUCT SECTIONS */
-        .product-section { padding: 100px 0; border-bottom: 1px solid #e2e8f0; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        /* SECCIÓN POR QUÉ AHORA */
+        .problem-solve { padding: 60px 0; text-align: center; }
+        .benefit-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+            margin-top: 50px;
+        }
+        .benefit-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .benefit-card h3 { color: var(--primary); margin-top: 0; }
+
+        /* DETALLE DE PRODUCTOS */
+        .product-box { 
+            background: white; 
+            border-radius: 30px; 
+            margin: 60px 0; 
+            padding: 50px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px; 
+            align-items: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+        }
+        @media (max-width: 850px) { .product-box { grid-template-columns: 1fr; padding: 30px; text-align: center; } }
+
+        .image-side img { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-            .grid.reverse { direction: ltr; }
-            .product-image { order: -1; }
-        }
+        /* FUNCIONES EXPLICADAS */
+        .feature-item { margin-bottom: 25px; }
+        .feature-item strong { display: block; color: var(--primary); font-size: 1.1rem; }
+        .feature-item p { margin: 5px 0; font-size: 0.95rem; color: var(--slate); }
 
-        .tag { 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            font-weight: 700; 
-            letter-spacing: 2.5px; 
-            color: var(--accent); 
-            margin-bottom: 16px; 
-            display: block; 
-        }
+        /* GALERÍA MÓVIL */
+        .gallery { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
+        .gallery img { height: 450px; border-radius: 25px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 0 0 30px; line-height: 1.2; }
-
-        .features-list { list-style: none; padding: 0; margin: 40px 0; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
-        @media (min-width: 769px) { .features-list { margin-left: 0; } }
-        .features-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.05rem; }
-        .features-list li::before { content: "✦"; color: var(--accent); font-weight: bold; margin-top: 2px; }
-
-        /* IMAGES & MOCKUPS */
-        .mockup-container {
-            position: relative;
-            background: var(--white);
-            padding: 25px;
-            border-radius: 35px;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s ease;
-        }
-        .mockup-container:hover { transform: translateY(-5px); box-shadow: 0 40px 70px -15px rgba(0, 0, 0, 0.25); }
-        
-        .mockup-container img { 
-            width: 100%; 
-            border-radius: 20px; 
-            display: block; 
-        }
-
-        /* APP GALLERY */
-        .gallery-wrapper { padding: 80px 0; background: var(--dark); color: var(--white); }
-        .gallery-scroll { 
-            display: flex; 
-            gap: 25px; 
-            padding: 50px 0; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.2) transparent;
-        }
-        .gallery-item { min-width: 300px; scroll-snap-align: center; }
-        .gallery-item img { 
-            width: 100%; 
-            border-radius: 25px; 
-            border: 6px solid rgba(255,255,255,0.08); 
-            transition: 0.3s;
-        }
-        .gallery-item img:hover { border-color: var(--accent); }
-        .gallery-item p { text-align: center; font-size: 0.9rem; margin-top: 15px; color: #94a3b8; font-weight: 600; }
-
-        /* BUTTONS */
+        /* BOTONES */
         .btn {
             display: inline-block;
-            padding: 20px 40px;
-            border-radius: 14px;
+            padding: 18px 35px;
+            border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px 5px;
         }
-        .btn-primary { background: var(--accent); color: white; box-shadow: 0 12px 24px -6px rgba(123, 104, 238, 0.5); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 30px -6px rgba(123, 104, 238, 0.5); opacity: 0.95; }
-        
-        .btn-book { background: var(--secondary); color: white; box-shadow: 0 12px 24px -6px rgba(233, 30, 99, 0.5); }
-        .btn-book:hover { transform: translateY(-3px); box-shadow: 0 24px 30px -6px rgba(233, 30, 99, 0.5); opacity: 0.95; }
+        .btn-app { background: var(--primary); color: white; }
+        .btn-book { background: var(--secondary); color: white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
 
-        /* FOOTER */
-        footer { padding: 120px 0 60px; background: var(--white); text-align: center; border-top: 1px solid #e2e8f0; }
-        .footer-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 3px; color: var(--slate); margin-bottom: 30px; display: block; }
-        .legal-links { margin: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 20px 0; }
-        .legal-links a { text-decoration: none; color: var(--slate); margin: 0 18px; font-size: 0.95rem; font-weight: 500; }
-        .legal-links a:hover { color: var(--accent); }
-
+        footer { background: #1a1a1c; color: #a1a1a1; padding: 80px 0 40px; text-align: center; margin-top: 100px; }
+        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <a href="#" class="logo">AHORA</a>
-            <nav>
-                <a href="#app" style="margin-right:25px; text-decoration:none; color:inherit; font-weight:600; font-size:0.95rem;">La App</a>
-                <a href="#libro" style="text-decoration:none; color:inherit; font-weight:600; font-size:0.95rem;">El E-book</a>
-            </nav>
-        </header>
-    </div>
-
     <section class="hero">
         <div class="container">
-            <span class="tag">Mindfulness & Bienestar Digital</span>
-            <h1>Domina tu atención, <br><span style="color:var(--accent); font-style:italic;">habita tu presente.</span></h1>
-            <p>Descubre herramientas de software y guías literarias diseñadas por Susana B. Fuentes para silenciar el ruido mental y recuperar la calma.</p>
-            <a href="#app" class="btn btn-primary">Explorar Soluciones Digitales</a>
+            <h1>¿Tu mente no tiene botón de apagado?</h1>
+            <p>Aprende a gestionar el ruido mental y recupera tu capacidad de disfrutar el presente con las herramientas diseñadas por Susana B. Fuentes.</p>
+            <a href="#app" class="btn btn-app">Explorar la App</a>
+            <a href="#libro" class="btn btn-book">Leer el Libro</a>
         </div>
     </section>
 
-    <section id="app" class="product-section">
-        <div class="container">
-            <div class="grid">
-                <div class="product-text">
-                    <span class="tag">Software Digital Autorizado</span>
-                    <h2>App AHORA Pro</h2>
-                    <p>Una herramienta avanzada de bio-feedback y reprogramación mental directamente en tu dispositivo móvil. Diseñada científicamente para romper el ciclo del "piloto automático" y la rumiación.</p>
-                    <ul class="features-list">
-                        <li><strong>Diario de Gratitud PRO:</strong> Entrena tu enfoque en la abundancia con almacenamiento local cifrado y privado.</li>
-                        <li><strong>Recordatorios Adaptativos:</strong> Interrupciones conscientes diseñadas para detener la rumiación mental en intervalos optimizados.</li>
-                        <li><strong>Guías de Respiración Dinámicas:</strong> Patrones visuales fluidos para calmar el sistema nervioso en menos de 60 segundos.</li>
-                    </ul>
-                    <div style="margin-top:50px; text-align: center;">
-                        <span style="display:block; font-size:1.8rem; font-weight:800; margin-bottom:20px; color: var(--dark);">2,99€ <small style="font-size:1rem; font-weight:400; color:var(--slate);">Pago único por Licencia Vitalicia</small></span>
-                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-primary">Descargar Versión Lite (Gratis)</a>
-                    </div>
+    <div class="container">
+        <section class="problem-solve">
+            <h2>¿Por qué elegir el método AHORA?</h2>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h3>Paz Inmediata</h3>
+                    <p>Técnicas de respiración que calman tu sistema nervioso en menos de 60 segundos.</p>
                 </div>
-                <div class="product-image">
-                    <div class="mockup-container">
-                        <img src="principal.jpg" alt="Interfaz Principal App AHORA Pro" onerror="this.src='https://via.placeholder.com/400x800?text=principal.jpg+no+encontrada'">
-                    </div>
+                <div class="benefit-card">
+                    <h3>Enfoque Diario</h3>
+                    <p>Entrena tu cerebro para detectar la abundancia y salir del ciclo de la escasez.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Ciencia y Calma</h3>
+                    <p>Basado en principios de psicología conductual y atención plena (Mindfulness).</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="gallery-wrapper">
-        <div class="container">
-            <div style="text-align:center; max-width:600px; margin: 0 auto 60px;">
-                <span class="tag" style="color:var(--white); opacity:0.7;">Tour Visual Premium</span>
-                <h2 style="color:var(--white); font-size: 2.5rem; margin-top: 10px;">Experiencia de Usuario Zen</h2>
-                <p style="color: #94a3b8; font-size: 1.1rem;">Explora la interfaz limpia y minimalista diseñada para guiarte hacia la calma sin distracciones.</p>
+        <section id="app" class="product-box">
+            <div class="image-side">
+                <img src="principal.jpg" alt="App AHORA">
             </div>
-            <div class="gallery-scroll">
-                <div class="gallery-item">
-                    <img src="momento.jpg" alt="Timer Zen" onerror="this.src='https://via.placeholder.com/300x600?text=momento.jpg+no+encontrada'">
-                    <p>Temporizador de Presencia Pure</p>
+            <div class="info-side">
+                <span style="color:var(--primary); font-weight:800; text-transform:uppercase; letter-spacing:1px;">Software Premium</span>
+                <h2 style="font-size:2.5rem; margin:10px 0;">App AHORA Pro</h2>
+                <p>Mucho más que una aplicación de meditación: es un entrenador de atención personal.</p>
+                
+                <div class="feature-item">
+                    <strong>📓 Diario de Gratitud Inteligente</strong>
+                    <p>No pierdas tus momentos de felicidad. Un espacio privado donde registrar lo que importa, reforzando las rutas neuronales del optimismo.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="respiraciones.jpg" alt="Guía Respiración" onerror="this.src='https://via.placeholder.com/300x600?text=respiraciones.jpg+no+encontrada'">
-                    <p>Control de Ansiedad Bio-guiado</p>
+                <div class="feature-item">
+                    <strong>🌬️ Guías de Respiración Visual</strong>
+                    <p>Sincroniza tu ritmo cardíaco con patrones visuales fluidos diseñados para detener ataques de ansiedad o rumiación.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="diario.jpg" alt="Diario Gratitud" onerror="this.src='https://via.placeholder.com/300x600?text=diario.jpg+no+encontrada'">
-                    <p>Registro de Abundancia Privado</p>
+                <div class="feature-item">
+                    <strong>🔔 Recordatorios de Presencia</strong>
+                    <p>Configura frases personalizadas que te devuelven al "aquí y ahora" de forma automática, evitando que tu mente vague hacia el pasado o el futuro.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="ajustes.jpg" alt="Configuración" onerror="this.src='https://via.placeholder.com/300x600?text=ajustes.jpg+no+encontrada'">
-                    <p>Personalización de Intervalos</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="historial.jpg" alt="Historial Progreso" onerror="this.src='https://via.placeholder.com/300x600?text=historial.jpg+no+encontrada'">
-                    <p>Seguimiento de Metas y Logros</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="frases.jpg" alt="Mis Frases" onerror="this.src='https://via.placeholder.com/300x600?text=frases.jpg+no+encontrada'">
-                    <p>Reprogramación Mental Activa</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="libro" class="product-section" style="background:var(--white);">
-        <div class="container">
-            <div class="grid reverse">
-                <div class="product-image">
-                    <div class="mockup-container" style="padding:0; box-shadow:none; text-align:right;">
-                        <img src="portada_libro.jpg" alt="Portada E-book Deja de comerte el coco" style="border-radius:8px; box-shadow: 25px 25px 70px rgba(0,0,0,0.15); max-width: 420px; display:inline-block;" onerror="this.src='https://via.placeholder.com/400x600?text=portada_libro.jpg+no+encontrada'">
-                    </div>
-                </div>
-                <div class="product-text">
-                    <span class="tag" style="color:var(--secondary);">Contenido Editorial Digital</span>
-                    <h2>Deja de comerte el coco</h2>
-                    <p style="font-size:1.2rem; font-style:italic; color: var(--secondary); margin-bottom: 30px;">Libérate de la preocupación de forma definitiva.</p>
-                    <p>Este e-book no es solo lectura; es una hoja de ruta práctica y directa para desmantelar los hábitos de pensamiento intrusivo. Susana B. Fuentes desglosa la psicología de la preocupación crónica y ofrece métodos accionables para silenciar el ruido mental de forma permanente.</p>
-                    <ul class="features-list">
-                        <li><strong>Formato Digital Premium:</strong> PDF de alta resolución compatible con todos los lectores, tablets y móviles.</li>
-                        <li><strong>Método Práctico Indexado:</strong> Ejercicios guiados paso a paso para aplicar en el momento de crisis.</li>
-                        <li><strong>Entrega Digital Inmediata:</strong> Acceso instantáneo a la descarga tras completar la transacción de forma segura.</li>
-                    </ul>
-                    <div style="margin-top:50px; text-align: center;">
-                        <span style="display:block; font-size:1.8rem; font-weight:800; margin-bottom:20px; color: var(--dark);">9,95€ <small style="font-size:1rem; font-weight:400; color:var(--slate);">Descarga Digital Única (PDF)</small></span>
-                        <a href="https://github.com/unajovenmente/Ahora-app/releases/tag/untagged-78e1ecc797663d0a0585" class="btn btn-book">Adquirir E-book (Descarga Inmediata)</a>
-                    </div>
+                <div style="margin-top:30px;">
+                    <div style="font-size:1.8rem; font-weight:800; margin-bottom:15px;">2,99€ <small style="font-weight:400; font-size:0.9rem;">Licencia Vitalicia</small></div>
+                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-app">Descargar APK Gratis</a>
                 </div>
             </div>
+        </section>
+
+        <h3 style="text-align:center;">Una interfaz diseñada para la paz</h3>
+        <div class="gallery">
+            <img src="momento.jpg" alt="Momento">
+            <img src="respiraciones.jpg" alt="Respiraciones">
+            <img src="diario.jpg" alt="Diario">
+            <img src="frases.jpg" alt="Frases">
+            <img src="ajustes.jpg" alt="Ajustes">
+            <img src="historial.jpg" alt="Historial">
         </div>
-    </section>
+
+        <section id="libro" class="product-box" style="border-top: 5px solid var(--secondary);">
+            <div class="info-side">
+                <span style="color:var(--secondary); font-weight:800; text-transform:uppercase; letter-spacing:1px;">E-book y Guía Práctica</span>
+                <h2 style="font-size:2.5rem; margin:10px 0;">Deja de comerte el coco</h2>
+                <p><strong>Libérate de la preocupación.</strong> Un libro directo al grano que te enseña a desmantelar los hábitos de pensamiento que te agotan.</p>
+                
+                <div class="feature-item">
+                    <strong>🧠 Entiende tu mente</strong>
+                    <p>Descubre por qué tu cerebro se queda "enganchado" en preocupaciones inútiles y cómo interrumpir ese proceso.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>📝 Cuaderno de ejercicios</strong>
+                    <p>No solo teoría. Incluye pasos accionables para aplicar cuando sientas que el estrés te desborda.</p>
+                </div>
+
+                <div style="margin-top:30px;">
+                    <div style="font-size:1.8rem; font-weight:800; margin-bottom:15px;">3,99€ <small style="font-weight:400; font-size:0.9rem;">Formato Digital</small></div>
+                    <a href="https://github.com/unajovenmente/Ahora-app/releases/tag/untagged-78e1ecc797663d0a0585" class="btn btn-book">Comprar PDF</a>
+                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/ebook/Liberate-de-la-Preocupacion-_3_.epub" class="btn btn-book" style="background:#444;">Descargar EPUB</a>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="portada_libro.jpg" alt="Portada Libro">
+            </div>
+        </section>
+    </div>
 
     <footer>
         <div class="container">
-            <a href="#" class="footer-logo">AHORA</a>
-            <div class="footer-grid">
-                <p style="font-weight:700; font-size: 1.1rem; color: var(--dark);">© 2026 AHORA | Susana B. Fuentes</p>
-                <p style="color:var(--slate); max-width:650px; margin: 25px auto; font-size:0.9rem; line-height: 1.6;">
-                    Merchant of Record: Paddle.com. Al realizar una compra, usted acepta recibir una licencia de software digital autorizada o una descarga de contenido editorial digital. La entrega se realiza vía email o descarga directa inmediatamente tras el pago.
-                </p>
-                <div class="legal-links">
-                    <a href="terms.html">Términos de Servicio</a>
-                    <a href="privacy.html">Política de Privacidad</a>
-                    <a href="refunds.html">Política de Reembolso</a>
-                </div>
-                <p style="font-size:0.8rem; color:#cbd5e1; margin-top: 30px;">Desarrollado y Editado en Málaga, España | unajovenmente@gmail.com</p>
+            <h2 style="color:white; font-family:'Lora', serif; font-style:italic;">AHORA</h2>
+            <p>Por Susana B. Fuentes - Mindfulness & Bienestar Digital</p>
+            <div class="legal-links">
+                <a href="privacy.html">Privacidad</a> | 
+                <a href="terms.html">Términos</a> | 
+                <a href="refunds.html">Reembolsos</a>
             </div>
+            <p style="margin-top:40px; font-size:0.8rem; opacity:0.6;">
+                Paddle.com es nuestro Merchant of Record autorizado. <br>
+                Los productos digitales se entregan de forma inmediata tras el pago.
+            </p>
         </div>
     </footer>
 
