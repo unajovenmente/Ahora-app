@@ -3,185 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHORA | Libera tu mente con Susana B. Fuentes</title>
+    <title>AHORA | Método de Bienestar Mental por Susana B. Fuentes</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #7b68ee;
-            --secondary: #e91e63;
-            --bg: #fafafa;
-            --text: #1a1a1c;
-            --slate: #5e5e6e;
-        }
-
+        /* [ESTILOS ANTERIORES SE MANTIENEN] */
+        :root { --primary: #7b68ee; --secondary: #e91e63; --bg: #fafafa; --text: #1a1a1c; --slate: #5e5e6e; }
         * { box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
-            scroll-behavior: smooth;
-        }
-
+        body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; line-height: 1.6; color: var(--text); background-color: var(--bg); scroll-behavior: smooth; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        /* HERO PERSUASIVO */
-        .hero {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(180deg, #f0edff 0%, var(--bg) 100%);
-        }
-        .hero h1 { 
-            font-family: 'Lora', serif; 
-            font-size: clamp(2.2rem, 5vw, 4rem); 
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        .hero p { font-size: 1.2rem; color: var(--slate); max-width: 700px; margin: 0 auto 40px; }
-
-        /* SECCIÓN POR QUÉ AHORA */
-        .problem-solve { padding: 60px 0; text-align: center; }
-        .benefit-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; 
-            margin-top: 50px;
-        }
-        .benefit-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .benefit-card h3 { color: var(--primary); margin-top: 0; }
-
-        /* DETALLE DE PRODUCTOS */
-        .product-box { 
-            background: white; 
-            border-radius: 30px; 
-            margin: 60px 0; 
-            padding: 50px; 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 50px; 
-            align-items: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
-        }
-        @media (max-width: 850px) { .product-box { grid-template-columns: 1fr; padding: 30px; text-align: center; } }
-
-        .image-side img { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        /* FUNCIONES EXPLICADAS */
-        .feature-item { margin-bottom: 25px; }
-        .feature-item strong { display: block; color: var(--primary); font-size: 1.1rem; }
-        .feature-item p { margin: 5px 0; font-size: 0.95rem; color: var(--slate); }
-
-        /* GALERÍA MÓVIL */
-        .gallery { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
-        .gallery img { height: 450px; border-radius: 25px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* BOTONES */
-        .btn {
-            display: inline-block;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-            margin: 10px 5px;
-        }
-        .btn-app { background: var(--primary); color: white; }
-        .btn-book { background: var(--secondary); color: white; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-
-        footer { background: #1a1a1c; color: #a1a1a1; padding: 80px 0 40px; text-align: center; margin-top: 100px; }
-        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; }
+        /* ESTILOS ESPECÍFICOS PARA LA TABLA */
+        .pricing-section { padding: 80px 0; background: #fff; border-radius: 40px; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 30px; text-align: left; }
+        .comparison-table th, .comparison-table td { padding: 20px; border-bottom: 1px solid #f0f0f0; }
+        .comparison-table th { background: #f9f9ff; color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; }
+        .check { color: #22c55e; font-weight: bold; }
+        .cross { color: #ef4444; font-weight: bold; }
+        
+        /* [RESTO DE ESTILOS ADAPTADOS] */
+        .hero { padding: 100px 0; text-align: center; background: linear-gradient(180deg, #f0edff 0%, var(--bg) 100%); }
+        .product-box { background: white; border-radius: 40px; margin: 40px 0; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .image-side img { width: 100%; border-radius: 25px; box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
+        .btn { display: inline-block; padding: 18px 35px; border-radius: 15px; font-weight: 700; text-decoration: none; transition: 0.3s; margin-top: 20px; }
+        .btn-lite { background: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; }
+        .btn-pro { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3); }
+        footer { background: #1a1a1c; color: #a1a1a1; padding: 80px 0; text-align: center; margin-top: 100px; }
+        .legal-links a { color: #fff; text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
 
     <section class="hero">
         <div class="container">
-            <h1>¿Tu mente no tiene botón de apagado?</h1>
-            <p>Aprende a gestionar el ruido mental y recupera tu capacidad de disfrutar el presente con las herramientas diseñadas por Susana B. Fuentes.</p>
-            <a href="#app" class="btn btn-app">Explorar la App</a>
-            <a href="#libro" class="btn btn-book">Leer el Libro</a>
+            <h1>Silencia el ruido,<br>recupera tu vida.</h1>
+            <p>Ecosistema digital AHORA: herramientas diseñadas para liberarte de la rumiación y vivir con presencia real.</p>
         </div>
     </section>
 
     <div class="container">
-        <section class="problem-solve">
-            <h2>¿Por qué elegir el método AHORA?</h2>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <h3>Paz Inmediata</h3>
-                    <p>Técnicas de respiración que calman tu sistema nervioso en menos de 60 segundos.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Enfoque Diario</h3>
-                    <p>Entrena tu cerebro para detectar la abundancia y salir del ciclo de la escasez.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Ciencia y Calma</h3>
-                    <p>Basado en principios de psicología conductual y atención plena (Mindfulness).</p>
-                </div>
-            </div>
-        </section>
-
+        
         <section id="app" class="product-box">
             <div class="image-side">
-                <img src="principal.jpg" alt="App AHORA">
+                <img src="principal.jpg" alt="App AHORA Pro">
             </div>
             <div class="info-side">
-                <span style="color:var(--primary); font-weight:800; text-transform:uppercase; letter-spacing:1px;">Software Premium</span>
-                <h2 style="font-size:2.5rem; margin:10px 0;">App AHORA Pro</h2>
-                <p>Mucho más que una aplicación de meditación: es un entrenador de atención personal.</p>
+                <span style="color:var(--primary); font-weight:800; text-transform:uppercase;">Software de Bienestar</span>
+                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:15px 0;">App AHORA</h2>
+                <p>Descarga la versión **Lite gratuita** para comenzar tu camino, o desbloquea la **Experiencia Pro** para un compromiso total con tu paz mental.</p>
                 
-                <div class="feature-item">
-                    <strong>📓 Diario de Gratitud Inteligente</strong>
-                    <p>No pierdas tus momentos de felicidad. Un espacio privado donde registrar lo que importa, reforzando las rutas neuronales del optimismo.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>🌬️ Guías de Respiración Visual</strong>
-                    <p>Sincroniza tu ritmo cardíaco con patrones visuales fluidos diseñados para detener ataques de ansiedad o rumiación.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>🔔 Recordatorios de Presencia</strong>
-                    <p>Configura frases personalizadas que te devuelven al "aquí y ahora" de forma automática, evitando que tu mente vague hacia el pasado o el futuro.</p>
-                </div>
-
-                <div style="margin-top:30px;">
-                    <div style="font-size:1.8rem; font-weight:800; margin-bottom:15px;">2,99€ <small style="font-weight:400; font-size:0.9rem;">Licencia Vitalicia</small></div>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-app">Descargar APK Gratis</a>
+                <div style="margin-top:40px; display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite">Descargar Versión Lite (Gratis)</a>
+                        <p style="font-size:0.8rem; color:var(--slate); margin-top:5px;">Ideal para probar las funciones básicas.</p>
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-pro">Activar Licencia Pro (2,99€)</a>
+                        <p style="font-size:0.8rem; color:var(--primary); font-weight:600; margin-top:5px;">Acceso ilimitado y funciones exclusivas.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <h3 style="text-align:center;">Una interfaz diseñada para la paz</h3>
-        <div class="gallery">
-            <img src="momento.jpg" alt="Momento">
-            <img src="respiraciones.jpg" alt="Respiraciones">
-            <img src="diario.jpg" alt="Diario">
-            <img src="frases.jpg" alt="Frases">
-            <img src="ajustes.jpg" alt="Ajustes">
-            <img src="historial.jpg" alt="Historial">
-        </div>
+        <section class="pricing-section">
+            <h2 style="text-align:center; font-family:'Lora', serif; margin-bottom:40px;">Lite vs. Pro: Elige tu nivel de calma</h2>
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Función</th>
+                            <th>Versión LITE</th>
+                            <th>Versión PRO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Diario de Gratitud</strong></td>
+                            <td>Limitado (3 registros)</td>
+                            <td class="check">Ilimitado + Historial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recordatorios de Conciencia</strong></td>
+                            <td>Solo frase por defecto</td>
+                            <td class="check">Frases Pro y Personalizadas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guías de Respiración</strong></td>
+                            <td>Patrón Básico</td>
+                            <td class="check">Ciclos Avanzados de Relajación</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Base de Datos</strong></td>
+                            <td>Local Temporal</td>
+                            <td class="check">Cifrado de Alta Seguridad</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soporte</strong></td>
+                            <td>Comunidad</td>
+                            <td class="check">Prioritario</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Precio</strong></td>
+                            <td style="font-weight:bold;">0,00€</td>
+                            <td style="color:var(--primary); font-weight:bold; font-size:1.2rem;">2,99€ (Pago Único)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-        <section id="libro" class="product-box" style="border-top: 5px solid var(--secondary);">
+        <section id="libro" class="product-box" style="border-top: 6px solid var(--secondary);">
             <div class="info-side">
-                <span style="color:var(--secondary); font-weight:800; text-transform:uppercase; letter-spacing:1px;">E-book y Guía Práctica</span>
-                <h2 style="font-size:2.5rem; margin:10px 0;">Deja de comerte el coco</h2>
-                <p><strong>Libérate de la preocupación.</strong> Un libro directo al grano que te enseña a desmantelar los hábitos de pensamiento que te agotan.</p>
+                <span style="color:var(--secondary); font-weight:800; text-transform:uppercase;">Contenido Editorial</span>
+                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:15px 0;">Deja de comerte el coco</h2>
+                <p><strong>Libérate de la preocupación.</strong> El complemento perfecto para la App. Una guía psicológica profunda para desmantelar la rumiación.</p>
+                <p>Disponible en un pack único que incluye **PDF** para estudio y **EPUB** para lectura cómoda en dispositivos electrónicos.</p>
                 
-                <div class="feature-item">
-                    <strong>🧠 Entiende tu mente</strong>
-                    <p>Descubre por qué tu cerebro se queda "enganchado" en preocupaciones inútiles y cómo interrumpir ese proceso.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>📝 Cuaderno de ejercicios</strong>
-                    <p>No solo teoría. Incluye pasos accionables para aplicar cuando sientas que el estrés te desborda.</p>
-                </div>
-
-                <div style="margin-top:30px;">
-                    <div style="font-size:1.8rem; font-weight:800; margin-bottom:15px;">3,99€ <small style="font-weight:400; font-size:0.9rem;">Formato Digital</small></div>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/tag/untagged-78e1ecc797663d0a0585" class="btn btn-book">Comprar PDF</a>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/ebook/Liberate-de-la-Preocupacion-_3_.epub" class="btn btn-book" style="background:#444;">Descargar EPUB</a>
+                <div style="margin-top:40px;">
+                    <div style="font-size:2rem; font-weight:800; color:var(--text);">3,99€ <small style="font-weight:400; font-size:1rem; color:var(--slate);">Pack Digital Completo</small></div>
+                    <a href="#" class="btn btn-book" style="background:var(--secondary); color:white;">Comprar Libro Digital</a>
                 </div>
             </div>
             <div class="image-side">
@@ -193,15 +132,13 @@
     <footer>
         <div class="container">
             <h2 style="color:white; font-family:'Lora', serif; font-style:italic;">AHORA</h2>
-            <p>Por Susana B. Fuentes - Mindfulness & Bienestar Digital</p>
+            <p>Diseño y Desarrollo por Susana B. Fuentes</p>
             <div class="legal-links">
-                <a href="privacy.html">Privacidad</a> | 
-                <a href="terms.html">Términos</a> | 
-                <a href="refunds.html">Reembolsos</a>
+                <a href="privacy.html">Privacidad</a> | <a href="terms.html">Términos</a> | <a href="refunds.html">Reembolsos</a>
             </div>
-            <p style="margin-top:40px; font-size:0.8rem; opacity:0.6;">
+            <p style="max-width:700px; margin:40px auto 0; font-size:0.85rem; opacity:0.5;">
                 Paddle.com es nuestro Merchant of Record autorizado. <br>
-                Los productos digitales se entregan de forma inmediata tras el pago.
+                Entrega digital inmediata tras la validación del pago.
             </p>
         </div>
     </footer>
