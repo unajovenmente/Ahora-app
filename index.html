@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7b68ee; /* Violeta Pro */
-            --secondary: #e91e63; /* Rosa Libro */
+            --primary: #7b68ee;
+            --secondary: #e91e63;
             --dark: #0f172a;
             --slate: #475569;
             --bg: #f8fafc;
@@ -17,54 +17,97 @@
             --light-rose: #fff1f5;
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--bg);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* HEADER */
-        header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
-        .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; font-style: italic; }
-        nav { display: flex; align-items: center; }
-        nav a { text-decoration: none; color: var(--slate); font-weight: 600; margin-left: 20px; font-size: 0.95rem; }
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-weight: 600;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
         
-        /* Selector de Idioma */
         .lang-select {
             margin-left: 20px;
             padding: 5px 10px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
             background: white;
-            font-family: inherit;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             cursor: pointer;
             color: var(--primary);
             outline: none;
         }
 
-        /* HERO */
         .hero {
             padding: 100px 0 80px;
             text-align: center;
             background: radial-gradient(circle at top right, #eef2ff, var(--bg) 80%);
         }
+
         .hero h1 { 
             font-family: 'Lora', serif; 
             font-size: clamp(2.2rem, 6vw, 4.2rem); 
             margin-bottom: 25px;
             font-style: italic;
             line-height: 1.1;
+            color: var(--dark);
         }
-        .hero p { font-size: 1.25rem; color: var(--slate); max-width: 800px; margin: 0 auto 50px; }
 
-        /* PRODUCT SECTIONS */
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--slate);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,11 +115,30 @@
             align-items: center;
             padding: 80px 0;
         }
-        @media (max-width: 850px) { .product-grid { grid-template-columns: 1fr; text-align: center; } }
 
-        .image-side img { width: 100%; border-radius: 25px; box-shadow: 0 20px 45px rgba(0,0,0,0.1); }
+        @media (max-width: 850px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
 
-        /* COMPARISON TABLE LITE VS PRO */
+        .image-side {
+            position: relative;
+        }
+
+        .image-side img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .info-side span {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
         .pricing-box {
             background: var(--white);
             border-radius: 30px;
@@ -85,6 +147,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             border: 1px solid #f1f5f9;
         }
+
         .pricing-table {
             width: 100%;
             border-collapse: collapse;
@@ -92,43 +155,85 @@
             margin-bottom: 25px;
             font-size: 0.9rem;
         }
-        .pricing-table th, .pricing-table td { padding: 15px 10px; border-bottom: 1px solid #f1f5f9; }
-        .col-pro { background: var(--light-violet); font-weight: 700; color: var(--primary); border-radius: 10px 10px 0 0; }
-        .check { color: #10b981; font-weight: bold; }
-        .cross { color: #f43f5e; font-weight: bold; }
 
-        /* TOUR VISUAL DE LA APP */
+        .pricing-table th {
+            padding: 15px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--slate);
+            font-weight: 700;
+        }
+
+        .pricing-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--dark);
+        }
+
+        .col-pro {
+            background: var(--light-violet);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .check {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #f43f5e;
+            font-weight: bold;
+        }
+
         .gallery-wrapper {
             background-color: var(--dark);
             color: #fff;
             padding: 80px 0;
             overflow: hidden;
         }
+
         .gallery-scroll {
             display: flex;
             gap: 20px;
             padding: 40px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.1) transparent;
+            scrollbar-width: none;
         }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
         .gallery-item {
             min-width: 280px;
             scroll-snap-align: center;
             text-align: center;
         }
+
         .gallery-item img {
             width: 100%;
             border-radius: 20px;
             border: 5px solid rgba(255,255,255,0.05);
-            transition: border-color 0.3s ease;
+            transition: transform 0.3s ease;
         }
-        .gallery-item:hover img { border-color: var(--primary); }
-        .gallery-item p { margin-top: 15px; font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
 
-        /* BOTONES PROFESIONALES */
-        .btn-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        .gallery-item p {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
         .btn {
             display: inline-block;
             padding: 18px 30px;
@@ -137,12 +242,34 @@
             text-decoration: none;
             transition: all 0.3s ease;
             text-align: center;
+            cursor: pointer;
+            border: none;
         }
-        .btn-lite { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
-        .btn-pro { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3); }
-        .btn-book { background: var(--secondary); color: white; box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3); width: 100%; }
-        .btn:hover { transform: translateY(-3px); opacity: 0.95; }
-        
+
+        .btn-lite {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-pro {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3);
+        }
+
+        .btn-book {
+            background: var(--secondary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+
         .btn-muestra { 
             background: #e2e8f0; 
             color: #1f2937; 
@@ -152,17 +279,63 @@
             align-items: center; 
             border-radius: 30px; 
             margin-top: 15px;
+            text-decoration: none;
+            font-weight: 700;
             transition: background 0.2s;
         }
-        .btn-muestra:hover { background: #cbd5e1; }
 
-        /* FOOTER */
-        footer { background: #0f172a; color: #94a3b8; padding: 100px 0 50px; text-align: center; }
-        .footer-links { margin: 30px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 20px 0; }
-        .footer-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.95rem; font-weight: 500; }
-        .footer-links a:hover { color: var(--primary); text-decoration: underline; }
-        
-        .contact-box { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; max-width: 650px; margin: 40px auto; color: #fff; }
+        .btn-muestra:hover {
+            background: #cbd5e1;
+        }
+
+        .support-section {
+            background: #fff;
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 30px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 650px;
+            margin: 40px auto;
+            color: #fff;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            opacity: 0.4;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -190,10 +363,9 @@
     </section>
 
     <div class="container">
-        
         <section id="app" class="product-grid" style="border-top: 1px solid #e2e8f0;">
             <div class="image-side">
-                <img src="principal.jpg" alt="App AHORA">
+                <img src="principal.jpg" class="lang-img" data-img="img-main" alt="App AHORA">
             </div>
             <div class="info-side">
                 <span data-key="app-tag" style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Software de Transformación Mental</span>
@@ -213,32 +385,32 @@
                             <tr>
                                 <td data-key="td-mind">Momento Mindfulness</td>
                                 <td data-key="td-basic">Nivel Básico</td>
-                                <td data-key="td-custom" class="col-pro check">✓ Personalizable</td>
+                                <td class="col-pro check">✓ Personalizable</td>
                             </tr>
                             <tr>
                                 <td data-key="td-grat">Diario de Gratitud</td>
                                 <td class="cross">✕</td>
-                                <td data-key="td-unlim" class="col-pro check">✓ Ilimitado</td>
+                                <td class="col-pro check">✓ Ilimitado</td>
                             </tr>
                             <tr>
                                 <td data-key="td-zen">Recordatorios Zen</td>
                                 <td data-key="td-std">Estándar</td>
-                                <td data-key="td-custom-pro" class="col-pro check">✓ Personalizables Pro</td>
+                                <td class="col-pro check">✓ Personalizables Pro</td>
                             </tr>
                             <tr>
                                 <td data-key="td-breath">Guías de Respiración</td>
                                 <td data-key="td-basic">Nivel Básico</td>
-                                <td data-key="td-levels" class="col-pro check">✓ 3 Niveles Avanzados</td>
+                                <td class="col-pro check">✓ 3 Niveles</td>
                             </tr>
                             <tr>
                                 <td data-key="td-hist">Historial y Logros</td>
                                 <td data-key="td-basic">Nivel Básico</td>
-                                <td data-key="td-prog" class="col-pro check">✓ Progresión Avanzada</td>
+                                <td class="col-pro check">✓ Progresión Avanzada</td>
                             </tr>
                             <tr>
-                                <td data-key="td-phrases">Frases</td>
+                                <td data-key="td-phrases">Frases Personalizadas</td>
                                 <td data-key="td-pre">Predefinidas</td>
-                                <td data-key="td-custom" class="col-pro check">✓ Personalizables</td>
+                                <td class="col-pro check">✓ Personalizables</td>
                             </tr>
                             <tr>
                                 <td><strong data-key="td-price">Precio Único</strong></td>
@@ -247,10 +419,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    
                     <div class="btn-container">
-                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite" data-key="btn-lite">Bajar Versión Lite (Gratis)</a>
-                        
+                        <a href="#" class="btn btn-lite" data-key="btn-lite">Bajar Versión Lite (Gratis)</a>
                         <a href="#" class="btn btn-pro" data-key="btn-pro">Activar Licencia Pro (2,99€)</a>
                     </div>
                 </div>
@@ -263,36 +433,31 @@
             <div style="text-align:center; max-width:600px; margin: 0 auto 50px;">
                 <span data-key="gal-tag" style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem;">Tour Visual Premium</span>
                 <h2 data-key="gal-title" style="font-family:'Lora', serif; font-size:2.5rem; margin-top:10px;">Experiencia Zen Sin Anuncios</h2>
-                <p data-key="gal-p" style="color:#94a3b8; font-size:1rem;">Descubre la interfaz limpia y minimalista diseñada para guiarte hacia la calma.</p>
             </div>
             <div class="gallery-scroll">
                 <div class="gallery-item">
-                    <img src="principal.jpg" alt="Timer">
-                    <p data-key="g1">Reloj Zen</p>
+                    <img src="momento.jpg" class="lang-img" data-img="img-gal1">
+                    <p data-key="g2">Mindfulness</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="momento.jpg" alt="Momento">
-                    <p data-key="g2">Temporizador Mindfulness</p>
+                    <img src="respiraciones.jpg" class="lang-img" data-img="img-gal2">
+                    <p data-key="g3">Respiración</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="respiraciones.jpg" alt="Respiración">
-                    <p data-key="g3">Guía de Relajación Guiada</p>
+                    <img src="diario.jpg" class="lang-img" data-img="img-gal3">
+                    <p data-key="g4">Diario</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="diario.jpg" alt="Diario">
-                    <p data-key="g4">Registro Gratitud Privado</p>
+                    <img src="frases.jpg" class="lang-img" data-img="img-gal4">
+                    <p data-key="g5">Frases</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="frases.jpg" alt="Frases">
-                    <p data-key="g5">Reprogramación Mental ACTIVA</p>
+                    <img src="ajustes.jpg" class="lang-img" data-img="img-gal5">
+                    <p data-key="g6">Ajustes</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="ajustes.jpg" alt="Ajustes">
-                    <p data-key="g6">Personalización de Intervalos</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="historial.jpg" alt="Progreso">
-                    <p data-key="g7">Metas y Logros Conseguidos</p>
+                    <img src="historial.jpg" class="lang-img" data-img="img-gal6">
+                    <p data-key="g7">Logros</p>
                 </div>
             </div>
         </div>
@@ -303,113 +468,186 @@
             <div class="info-side">
                 <span data-key="book-tag" style="color:var(--secondary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Contenido Editorial Digital</span>
                 <h2 data-key="book-title" style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">Deja de comerte el coco</h2>
-                <p data-key="book-desc"><strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental.</p>
+                <p data-key="book-desc"><strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental y te impiden vivir el ahora.</p>
                 
-                <ul style="list-style: none; padding: 0; margin: 30px 0; font-size: 1rem;">
-                    <li style="margin-bottom: 15px;">✦ <strong data-key="l1">Pack Digital:</strong> <span data-key="l1b">Incluye archivos PDF y EPUB (Kindle/E-reader).</span></li>
-                    <li style="margin-bottom: 15px;">✦ <strong data-key="l2">Método Práctico Indexado:</strong> <span data-key="l2b">Ejercicios guiados paso a paso.</span></li>
-                    <li style="margin-bottom: 15px;">✦ <strong data-key="l3">Entrega Digital Inmediata:</strong> <span data-key="l3b">Por email tras el pago.</span></li>
+                <ul style="list-style: none; padding: 0; margin: 30px 0;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;">
+                        <span style="color:var(--secondary); margin-right: 10px;">✦</span>
+                        <span><strong data-key="l1">Pack Digital Completo:</strong> <span data-key="l1b">Incluye archivos optimizados para Kindle (EPUB) y tablets (PDF).</span></span>
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;">
+                        <span style="color:var(--secondary); margin-right: 10px;">✦</span>
+                        <span><strong data-key="l2">Método Práctico AHORA:</strong> <span data-key="l2b">Ejercicios de introspección guiados paso a paso para reducir la ansiedad.</span></span>
+                    </li>
                 </ul>
 
-                <div style="background:var(--light-rose); padding:20px; border-radius:15px; border-left: 4px solid var(--secondary); margin-bottom: 30px;">
-                    <strong data-key="doubt-title" style="color:var(--secondary);">¿Dudas? Lee las primeras páginas gratis.</strong>
-                    <p data-key="doubt-p" style="font-size: 0.9rem; color: #701a75; margin: 5px 0 10px;">Hemos preparado una muestra en PDF para que puedas valorar la calidad del método Susana B. Fuentes.</p>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/muestra/muestra.pdf" class="btn-muestra" target="_blank" data-key="btn-sample">📄 Bajar Muestra Gratuita (PDF)</a>
+                <div style="background:var(--light-rose); padding:25px; border-radius:15px; border-left: 4px solid var(--secondary); margin-bottom: 30px;">
+                    <strong data-key="doubt-title" style="display: block; margin-bottom: 5px;">¿Aún tienes dudas? Lee las primeras páginas gratis.</strong>
+                    <p data-key="doubt-p" style="font-size: 0.9rem; margin: 0 0 15px 0;">He preparado una muestra en PDF para que compruebes el valor del contenido.</p>
+                    <a href="#" class="btn-muestra" data-key="btn-sample">📄 Descargar Muestra Gratuita</a>
                 </div>
 
-                <div style="background: #fff; padding: 30px; border-radius: 20px; border: 2px dashed var(--secondary); text-align: center;">
-                    <div style="font-size: 2.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 5px;">3,99€</div>
-                    <p data-key="book-license" style="font-size: 0.9rem; color: var(--slate); margin-bottom: 25px;">Licencia Única Pack PDF + EPUB</p>
-                    
-                    <a href="#" class="btn btn-book" data-key="btn-book">Comprar Guía Completa Ahora</a>
-                </div>
+                <a href="#" class="btn btn-book" data-key="btn-book">Comprar Guía Completa Ahora</a>
             </div>
             <div class="image-side">
-                <img src="portada_libro.jpg" alt="Portada Libro">
+                <img src="portada_libro.jpg" class="lang-img" data-img="img-book" alt="Portada Libro">
             </div>
         </section>
     </div>
 
-    <div style="background: #fff; padding: 80px 0; text-align: center; border-top: 1px solid #e2e8f0;">
+    <section class="support-section">
         <div class="container">
-            <h3 data-key="support-h3" style="font-family:'Lora', serif; font-size: 1.8rem; margin-bottom: 10px;">¿Dudas con la instalación o la compra?</h3>
-            <p data-key="support-p" style="color: var(--slate); max-width:600px; margin: 0 auto 30px;">Si necesitas soporte técnico para la App Pro o ayuda con tu pedido editorial, escríbeme directamente:</p>
-            <a href="mailto:unajovenmente@gmail.com" style="font-size: 1.6rem; font-weight: 800; color: var(--primary); text-decoration: none;">unajovenmente@gmail.com</a>
+            <h3 data-key="support-h3" style="font-family:'Lora', serif; font-size: 2rem; margin-bottom: 10px;">¿Necesitas ayuda con tu compra?</h3>
+            <p data-key="support-p" style="color: var(--slate); margin-bottom: 25px;">Si tienes problemas con la instalación o la descarga, escríbeme directamente:</p>
+            <a href="mailto:unajovenmente@gmail.com" style="font-size: 1.6rem; font-weight: 800; color: var(--primary); text-decoration: none; border-bottom: 2px solid var(--primary);">unajovenmente@gmail.com</a>
         </div>
-    </div>
+    </section>
 
     <footer>
         <div class="container">
-            <h2 style="color:white; font-family:'Lora', serif; font-style:italic; font-size: 2.5rem; margin-bottom: 10px;">AHORA</h2>
-            <p data-key="footer-subtitle" style="color: #fff; font-weight: 600; margin: 0;">Susana B. Fuentes | Bienestar Digital</p>
-            
             <div class="footer-links">
                 <a href="privacy.html" id="link-privacy" data-key="f-priv">Privacidad</a>
                 <a href="terms.html" id="link-terms" data-key="f-terms">Términos del Servicio</a>
-                <a href="refunds.html" id="link-refunds" data-key="f-refunds">Reembolsos</a>
+                <a href="refunds.html" id="link-refunds" data-key="f-refunds">Política de Reembolso</a>
             </div>
-            
             <div class="contact-box">
-                <p style="font-size: 0.9rem; margin: 0; color: #fff;">
-                    <strong data-key="f-contact">Atención al Cliente:</strong> <a href="mailto:unajovenmente@gmail.com" style="color: #fff;">unajovenmente@gmail.com</a><br>
-                    <span data-key="f-loc">Málaga, España.</span> <br><br>
-                    <small data-key="f-paddle" style="opacity: 0.6; line-height: 1.5;">
-                        Merchant of Record: Paddle.com. Como distribuidor oficial, Paddle gestiona la facturación, los impuestos y la entrega segura de nuestros productos digitales inmediatamente tras el pago.
-                    </small>
+                <p style="font-size: 0.85rem; color: #fff; line-height: 1.8;">
+                    <strong data-key="f-contact">Atención al Cliente:</strong> unajovenmente@gmail.com<br>
+                    <span data-key="f-author">Creado por Susana B. Fuentes</span><br>
+                    <small data-key="f-paddle" style="opacity: 0.6;">AHORA es un producto digital. Merchant of Record: Paddle.com.</small>
                 </p>
             </div>
-            
-            <p data-key="f-copy" style="margin-top: 50px; font-size: 0.75rem; opacity: 0.3;">© 2026 AHORA. Todos los derechos reservados.</p>
+            <p class="copyright" data-key="f-copy">© 2026 AHORA - Bienestar Digital. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
         const translations = {
             es: {
-                "nav-app": "La App", "nav-libro": "El Libro", "nav-soporte": "Soporte",
+                "nav-app": "La App",
+                "nav-libro": "El Libro",
+                "nav-soporte": "Soporte",
                 "hero-h1": "Silencia el ruido,<br><span style='color:var(--primary);'>recupera tu presente.</span>",
                 "hero-p": "Ecosistema de bienestar mental creado por la autora y desarrolladora <strong>Susana B. Fuentes</strong> para combatir la rumiación y el piloto automático.",
-                "app-tag": "Software de Transformación Mental", "app-title": "App AHORA Pro",
+                "app-tag": "Software de Transformación Mental",
+                "app-title": "App AHORA Pro",
                 "app-desc": "Un santuario privado para gestionar el estrés. Rompe el ciclo del pensamiento intrusivo con herramientas de bio-feedback y reprogramación mental.",
-                "th-func": "Funciones", "td-mind": "Momento Mindfulness", "td-basic": "Nivel Básico", "td-custom": "✓ Personalizable",
-                "td-grat": "Diario de Gratitud", "td-unlim": "✓ Ilimitado", "td-zen": "Recordatorios Zen", "td-std": "Estándar",
-                "td-custom-pro": "✓ Personalizables Pro", "td-breath": "Guías de Respiración", "td-hist": "Historial y Logros",
-                "td-levels": "✓ 3 Niveles Avanzados", "td-prog": "✓ Progresión Avanzada", "td-phrases": "Frases", "td-pre": "Predefinidas",
-                "td-price": "Precio Único", "td-free": "Gratis", "btn-lite": "Bajar Versión Lite (Gratis)", "btn-pro": "Activar Licencia Pro (2,99€)",
-                "gal-tag": "Tour Visual Premium", "gal-title": "Experiencia Zen Sin Anuncios", "gal-p": "Descubre la interfaz limpia y minimalista diseñada para guiarte hacia la calma.",
-                "g1": "Reloj Zen", "g2": "Temporizador Mindfulness", "g3": "Guía de Relajación Guiada", "g4": "Registro Gratitud Privado", "g5": "Reprogramación Mental ACTIVA", "g6": "Personalización de Intervalos", "g7": "Metas y Logros Conseguidos",
-                "book-tag": "Contenido Editorial Digital", "book-title": "Deja de comerte el coco", "book-desc": "<strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental.",
-                "l1": "Pack Digital:", "l1b": "Incluye archivos PDF y EPUB (Kindle/E-reader).", "l2": "Método Práctico Indexado:", "l2b": "Ejercicios guiados paso a paso.", "l3": "Entrega Digital Inmediata:", "l3b": "Por email tras el pago.",
-                "doubt-title": "¿Dudas? Lee las primeras páginas gratis.", "doubt-p": "Hemos preparado una muestra en PDF para que puedas valorar la calidad del método Susana B. Fuentes.", "btn-sample": "📄 Bajar Muestra Gratuita (PDF)",
-                "book-license": "Licencia Única Pack PDF + EPUB", "btn-book": "Comprar Guía Completa Ahora",
-                "support-h3": "¿Dudas con la instalación o la compra?", "support-p": "Si necesitas soporte técnico para la App Pro o ayuda con tu pedido editorial, escríbeme directamente:",
-                "footer-subtitle": "Susana B. Fuentes | Bienestar Digital", "f-priv": "Privacidad", "f-terms": "Términos del Servicio", "f-refunds": "Reembolsos",
-                "f-contact": "Atención al Cliente:", "f-loc": "Málaga, España.", "f-paddle": "Merchant of Record: Paddle.com. Como distribuidor oficial, Paddle gestiona la facturación, los impuestos y la entrega segura de nuestros productos digitales inmediatamente tras el pago.",
-                "f-copy": "© 2026 AHORA. Todos los derechos reservados.",
-                "url-priv": "privacy.html", "url-terms": "terms.html", "url-refunds": "refunds.html"
+                "th-func": "Funciones",
+                "td-mind": "Momento Mindfulness",
+                "td-basic": "Nivel Básico",
+                "td-grat": "Diario de Gratitud",
+                "td-zen": "Recordatorios Zen",
+                "td-std": "Estándar",
+                "td-breath": "Guías de Respiración",
+                "td-hist": "Historial y Logros",
+                "td-phrases": "Frases Personalizadas",
+                "td-pre": "Predefinidas",
+                "td-price": "Precio Único",
+                "td-free": "Gratis",
+                "btn-lite": "Bajar Versión Lite (Gratis)",
+                "btn-pro": "Activar Licencia Pro (2,99€)",
+                "gal-tag": "Tour Visual Premium",
+                "gal-title": "Experiencia Zen Sin Anuncios",
+                "g2": "Mindfulness",
+                "g3": "Respiración",
+                "g4": "Diario",
+                "g5": "Frases",
+                "g6": "Ajustes",
+                "g7": "Logros",
+                "book-tag": "Contenido Editorial Digital",
+                "book-title": "Deja de comerte el coco",
+                "book-desc": "<strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento.",
+                "l1": "Pack Digital Completo:",
+                "l1b": "Incluye archivos optimizados para Kindle (EPUB) y tablets (PDF).",
+                "l2": "Método Práctico AHORA:",
+                "l2b": "Ejercicios de introspección guiados paso a paso para reducir la ansiedad.",
+                "doubt-title": "¿Aún tienes dudas? Lee las primeras páginas gratis.",
+                "doubt-p": "He preparado una muestra en PDF para que compruebes el valor del contenido.",
+                "btn-sample": "📄 Descargar Muestra Gratuita",
+                "btn-book": "Comprar Guía Completa Ahora",
+                "support-h3": "¿Necesitas ayuda con tu compra?",
+                "support-p": "Si tienes problemas con la instalación o la descarga, escríbeme directamente:",
+                "f-priv": "Privacidad",
+                "f-terms": "Términos del Servicio",
+                "f-refunds": "Política de Reembolso",
+                "f-contact": "Atención al Cliente:",
+                "f-author": "Creado por Susana B. Fuentes",
+                "f-paddle": "AHORA es un producto digital. Merchant of Record: Paddle.com.",
+                "f-copy": "© 2026 AHORA - Bienestar Digital. Todos los derechos reservados.",
+                "img-main": "principal.jpg",
+                "img-book": "portada_libro.jpg",
+                "img-gal1": "momento.jpg",
+                "img-gal2": "respiraciones.jpg",
+                "img-gal3": "diario.jpg",
+                "img-gal4": "frases.jpg",
+                "img-gal5": "ajustes.jpg",
+                "img-gal6": "historial.jpg",
+                "url-priv": "privacy.html",
+                "url-terms": "terms.html",
+                "url-refunds": "refunds.html"
             },
             en: {
-                "nav-app": "The App", "nav-libro": "The Book", "nav-soporte": "Support",
+                "nav-app": "The App",
+                "nav-libro": "The Book",
+                "nav-soporte": "Support",
                 "hero-h1": "Silence the noise,<br><span style='color:var(--primary);'>reclaim your present.</span>",
                 "hero-p": "Mental wellbeing ecosystem created by author and developer <strong>Susana B. Fuentes</strong> to combat rumination and autopilot.",
-                "app-tag": "Mental Transformation Software", "app-title": "AHORA Pro App",
+                "app-tag": "Mental Transformation Software",
+                "app-title": "AHORA Pro App",
                 "app-desc": "A private sanctuary to manage stress. Break the cycle of intrusive thoughts with bio-feedback and mental reprogramming tools.",
-                "th-func": "Features", "td-mind": "Mindfulness Moment", "td-basic": "Basic Level", "td-custom": "✓ Customizable",
-                "td-grat": "Gratitude Journal", "td-unlim": "✓ Unlimited", "td-zen": "Zen Reminders", "td-std": "Standard",
-                "td-custom-pro": "✓ Pro Customization", "td-breath": "Breathing Guides", "td-hist": "History & Achievements",
-                "td-levels": "✓ 3 Advanced Levels", "td-prog": "✓ Advanced Progression", "td-phrases": "Quotes", "td-pre": "Predefined",
-                "td-price": "One-time Price", "td-free": "Free", "btn-lite": "Download Lite Version (Free)", "btn-pro": "Activate Pro License (€2.99)",
-                "gal-tag": "Premium Visual Tour", "gal-title": "Zen Experience Without Ads", "gal-p": "Discover the clean and minimalist interface designed to lead you towards calm.",
-                "g1": "Zen Clock", "g2": "Mindfulness Timer", "g3": "Guided Relaxation Guide", "g4": "Private Gratitude Log", "g5": "ACTIVE Mental Reprogramming", "g6": "Interval Customization", "g7": "Goals & Achievements Reached",
-                "book-tag": "Digital Editorial Content", "book-title": "Stop Overthinking", "book-desc": "<strong>Free yourself from worry for good.</strong> The psychological and practical guide to dismantling thought habits that drain your mental energy.",
-                "l1": "Digital Pack:", "l1b": "Includes PDF and EPUB files (Kindle/E-reader).", "l2": "Practical Indexed Method:", "l2b": "Step-by-step guided exercises.", "l3": "Immediate Digital Delivery:", "l3b": "Via email after payment.",
-                "doubt-title": "Doubts? Read the first pages for free.", "doubt-p": "We have prepared a PDF sample so you can evaluate the quality of the Susana B. Fuentes method.", "btn-sample": "📄 Download Free Sample (PDF)",
-                "book-license": "Single License PDF + EPUB Pack", "btn-book": "Buy Complete Guide Now",
-                "support-h3": "Questions about installation or purchase?", "support-p": "If you need technical support for the Pro App or help with your editorial order, write to me directly:",
-                "footer-subtitle": "Susana B. Fuentes | Digital Wellbeing", "f-priv": "Privacy", "f-terms": "Terms of Service", "f-refunds": "Refunds",
-                "f-contact": "Customer Support:", "f-loc": "Malaga, Spain.", "f-paddle": "Merchant of Record: Paddle.com. As official distributor, Paddle manages billing, taxes, and secure delivery of our digital products immediately after payment.",
-                "f-copy": "© 2026 AHORA. All rights reserved.",
-                "url-priv": "privacy-en.html", "url-terms": "terms-en.html", "url-refunds": "refunds-en.html"
+                "th-func": "Features",
+                "td-mind": "Mindfulness Moment",
+                "td-basic": "Basic Level",
+                "td-grat": "Gratitude Journal",
+                "td-zen": "Zen Reminders",
+                "td-std": "Standard",
+                "td-breath": "Breathing Guides",
+                "td-hist": "History & Achievements",
+                "td-phrases": "Custom Quotes",
+                "td-pre": "Predefined",
+                "td-price": "One-time Price",
+                "td-free": "Free",
+                "btn-lite": "Download Lite Version (Free)",
+                "btn-pro": "Activate Pro License (€2.99)",
+                "gal-tag": "Premium Visual Tour",
+                "gal-title": "Ad-Free Zen Experience",
+                "g2": "Mindfulness",
+                "g3": "Breathing",
+                "g4": "Journal",
+                "g5": "Quotes",
+                "g6": "Settings",
+                "g7": "Success",
+                "book-tag": "Digital Editorial Content",
+                "book-title": "Stop Overthinking",
+                "book-desc": "<strong>Free yourself from worry for good.</strong> The psychological and practical guide to dismantling thought habits.",
+                "l1": "Full Digital Pack:",
+                "l1b": "Includes files optimized for Kindle (EPUB) and tablets (PDF).",
+                "l2": "AHORA Practical Method:",
+                "l2b": "Step-by-step guided introspection exercises to reduce anxiety.",
+                "doubt-title": "Still have questions? Read the first pages for free.",
+                "doubt-p": "I have prepared a PDF sample so you can check the value of the content.",
+                "btn-sample": "📄 Download Free Sample",
+                "btn-book": "Buy Complete Guide Now",
+                "support-h3": "Need help with your purchase?",
+                "support-p": "If you have issues with installation or downloading, write to me directly:",
+                "f-priv": "Privacy",
+                "f-terms": "Terms of Service",
+                "f-refunds": "Refund Policy",
+                "f-contact": "Customer Support:",
+                "f-author": "Created by Susana B. Fuentes",
+                "f-paddle": "AHORA is a digital product. Merchant of Record: Paddle.com.",
+                "f-copy": "© 2026 AHORA - Digital Wellbeing. All rights reserved.",
+                "img-main": "principal-en.jpg",
+                "img-book": "portada_libro-en.jpg",
+                "img-gal1": "momento-en.jpg",
+                "img-gal2": "respiraciones-en.jpg",
+                "img-gal3": "diario-en.jpg",
+                "img-gal4": "frases-en.jpg",
+                "img-gal5": "ajustes-en.jpg",
+                "img-gal6": "historial-en.jpg",
+                "url-priv": "privacy-en.html",
+                "url-terms": "terms-en.html",
+                "url-refunds": "refunds-en.html"
             }
         };
 
@@ -418,7 +656,7 @@
         langSelector.addEventListener('change', (e) => {
             const lang = e.target.value;
             
-            // Traducir todos los elementos con data-key
+            // Actualizar todos los textos con data-key
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
@@ -426,22 +664,34 @@
                 }
             });
 
-            // Cambiar enlaces del footer dinámicamente
+            // Actualizar todas las imágenes con la clase lang-img
+            document.querySelectorAll('.lang-img').forEach(img => {
+                const imgKey = img.getAttribute('data-img');
+                if (translations[lang][imgKey]) {
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = translations[lang][imgKey];
+                        img.style.opacity = '1';
+                    }, 200);
+                }
+            });
+
+            // Actualizar los enlaces de los archivos legales
             document.getElementById('link-privacy').href = translations[lang]["url-priv"];
             document.getElementById('link-terms').href = translations[lang]["url-terms"];
             document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
 
-            // Guardar preferencia en el navegador
+            // Guardar preferencia
             localStorage.setItem('prefLang', lang);
         });
 
-        // Al cargar la página, recuperar el idioma guardado
+        // Al cargar la página, recuperar el idioma
         window.onload = () => {
             const savedLang = localStorage.getItem('prefLang') || 'es';
             langSelector.value = savedLang;
+            // Disparar el evento de cambio para aplicar el idioma guardado
             langSelector.dispatchEvent(new Event('change'));
         };
     </script>
-
 </body>
 </html>
