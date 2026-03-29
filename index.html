@@ -32,7 +32,20 @@
         /* HEADER */
         header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
         .logo { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; font-style: italic; }
+        nav { display: flex; align-items: center; }
         nav a { text-decoration: none; color: var(--slate); font-weight: 600; margin-left: 20px; font-size: 0.95rem; }
+        
+        /* Selector de Idioma */
+        .lang-select {
+            margin-left: 20px;
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--slate);
+        }
 
         /* HERO */
         .hero {
@@ -156,17 +169,21 @@
         <header>
             <a href="#" class="logo">AHORA</a>
             <nav>
-                <a href="#app">La App</a>
-                <a href="#libro">El Libro</a>
-                <a href="mailto:unajovenmente@gmail.com">Soporte</a>
+                <a href="#app" data-key="nav-app">La App</a>
+                <a href="#libro" data-key="nav-libro">El Libro</a>
+                <a href="mailto:unajovenmente@gmail.com" data-key="nav-soporte">Soporte</a>
+                <select id="langSelector" class="lang-select">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
             </nav>
         </header>
     </div>
 
     <section class="hero">
         <div class="container">
-            <h1>Silencia el ruido,<br><span style="color:var(--primary);">recupera tu presente.</span></h1>
-            <p>Ecosistema de bienestar mental creado por la autora y desarrolladora <strong>Susana B. Fuentes</strong> para combatir la rumiación y el piloto automático.</p>
+            <h1 data-key="hero-h1">Silencia el ruido,<br><span style="color:var(--primary);">recupera tu presente.</span></h1>
+            <p data-key="hero-p">Ecosistema de bienestar mental creado por la autora y desarrolladora <strong>Susana B. Fuentes</strong> para combatir la rumiación y el piloto automático.</p>
         </div>
     </section>
 
@@ -177,62 +194,62 @@
                 <img src="principal.jpg" alt="App AHORA">
             </div>
             <div class="info-side">
-                <span style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Software de Transformación Mental</span>
-                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">App AHORA Pro</h2>
-                <p>Un santuario privado para gestionar el estrés. Rompe el ciclo del pensamiento intrusivo con herramientas de bio-feedback y reprogramación mental.</p>
+                <span data-key="app-tag" style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Software de Transformación Mental</span>
+                <h2 data-key="app-title" style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">App AHORA Pro</h2>
+                <p data-key="app-desc">Un santuario privado para gestionar el estrés. Rompe el ciclo del pensamiento intrusivo con herramientas de bio-feedback y reprogramación mental.</p>
                 
                 <div class="pricing-box">
                     <table class="pricing-table">
                         <thead>
                             <tr>
-                                <th>Funciones</th>
+                                <th data-key="th-func">Funciones</th>
                                 <th>LITE</th>
                                 <th class="col-pro">PRO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Momento Mindfulness</td>
-                                <td>Nivel Básico</td>
-                                <td class="col-pro check">✓ Personalizable</td>
+                                <td data-key="td-mind">Momento Mindfulness</td>
+                                <td data-key="td-basic">Nivel Básico</td>
+                                <td data-key="td-custom" class="col-pro check">✓ Personalizable</td>
                             </tr>
                             <tr>
-                                <td>Diario de Gratitud</td>
+                                <td data-key="td-grat">Diario de Gratitud</td>
                                 <td class="cross">✕</td>
-                                <td class="col-pro check">✓ Ilimitado</td>
+                                <td data-key="td-unlim" class="col-pro check">✓ Ilimitado</td>
                             </tr>
                             <tr>
-                                <td>Recordatorios Zen</td>
-                                <td>Estándar</td>
-                                <td class="col-pro check">✓ Personalizables Pro</td>
+                                <td data-key="td-zen">Recordatorios Zen</td>
+                                <td data-key="td-std">Estándar</td>
+                                <td data-key="td-custom-pro" class="col-pro check">✓ Personalizables Pro</td>
                             </tr>
                             <tr>
-                                <td>Guías de Respiración</td>
-                                <td>Nivel Básico</td>
-                                <td class="col-pro check">✓ 3 Niveles Avanzados</td>
+                                <td data-key="td-breath">Guías de Respiración</td>
+                                <td data-key="td-basic">Nivel Básico</td>
+                                <td data-key="td-levels" class="col-pro check">✓ 3 Niveles Avanzados</td>
                             </tr>
                             <tr>
-                                <td>Historial y Logros</td>
-                                <td>Nivel Básico</td>
-                                <td class="col-pro check">✓ Progresión Avanzada</td>
+                                <td data-key="td-hist">Historial y Logros</td>
+                                <td data-key="td-basic">Nivel Básico</td>
+                                <td data-key="td-prog" class="col-pro check">✓ Progresión Avanzada</td>
                             </tr>
                             <tr>
-                                <td>Frases</td>
-                                <td>Predefinidas</td>
-                                <td class="col-pro check">✓ Personalizables</td>
+                                <td data-key="td-phrases">Frases</td>
+                                <td data-key="td-pre">Predefinidas</td>
+                                <td data-key="td-custom" class="col-pro check">✓ Personalizables</td>
                             </tr>
                             <tr>
-                                <td><strong>Precio Único</strong></td>
-                                <td><strong>Gratis</strong></td>
+                                <td><strong data-key="td-price">Precio Único</strong></td>
+                                <td><strong data-key="td-free">Gratis</strong></td>
                                 <td class="col-pro"><strong>2,99€</strong></td>
                             </tr>
                         </tbody>
                     </table>
                     
                     <div class="btn-container">
-                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite">Bajar Versión Lite (Gratis)</a>
+                        <a href="https://github.com/unajovenmente/Ahora-app/releases/download/V.1.0/app_ahora_lite.apk" class="btn btn-lite" data-key="btn-lite">Bajar Versión Lite (Gratis)</a>
                         
-                        <a href="#" class="btn btn-pro">Activar Licencia Pro (2,99€)</a>
+                        <a href="#" class="btn btn-pro" data-key="btn-pro">Activar Licencia Pro (2,99€)</a>
                     </div>
                 </div>
             </div>
@@ -242,38 +259,38 @@
     <div class="gallery-wrapper">
         <div class="container">
             <div style="text-align:center; max-width:600px; margin: 0 auto 50px;">
-                <span style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem;">Tour Visual Premium</span>
-                <h2 style="font-family:'Lora', serif; font-size:2.5rem; margin-top:10px;">Experiencia Zen Sin Anuncios</h2>
-                <p style="color:#94a3b8; font-size:1rem;">Descubre la interfaz limpia y minimalista diseñada para guiarte hacia la calma.</p>
+                <span data-key="gal-tag" style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem;">Tour Visual Premium</span>
+                <h2 data-key="gal-title" style="font-family:'Lora', serif; font-size:2.5rem; margin-top:10px;">Experiencia Zen Sin Anuncios</h2>
+                <p data-key="gal-p" style="color:#94a3b8; font-size:1rem;">Descubre la interfaz limpia y minimalista diseñada para guiarte hacia la calma.</p>
             </div>
             <div class="gallery-scroll">
                 <div class="gallery-item">
                     <img src="principal.jpg" alt="Timer">
-                    <p>Reloj Zen</p>
+                    <p data-key="g1">Reloj Zen</p>
                 </div>
                 <div class="gallery-item">
                     <img src="momento.jpg" alt="Momento">
-                    <p>Temporizador Mindfulness</p>
+                    <p data-key="g2">Temporizador Mindfulness</p>
                 </div>
                 <div class="gallery-item">
                     <img src="respiraciones.jpg" alt="Respiración">
-                    <p>Guía de Relajación Guiada</p>
+                    <p data-key="g3">Guía de Relajación Guiada</p>
                 </div>
                 <div class="gallery-item">
                     <img src="diario.jpg" alt="Diario">
-                    <p>Registro Gratitud Privado</p>
+                    <p data-key="g4">Registro Gratitud Privado</p>
                 </div>
                 <div class="gallery-item">
                     <img src="frases.jpg" alt="Frases">
-                    <p>Reprogramación Mental ACTIVA</p>
+                    <p data-key="g5">Reprogramación Mental ACTIVA</p>
                 </div>
                 <div class="gallery-item">
                     <img src="ajustes.jpg" alt="Ajustes">
-                    <p>Personalización de Intervalos</p>
+                    <p data-key="g6">Personalización de Intervalos</p>
                 </div>
                 <div class="gallery-item">
                     <img src="historial.jpg" alt="Progreso">
-                    <p>Metas y Logros Conseguidos</p>
+                    <p data-key="g7">Metas y Logros Conseguidos</p>
                 </div>
             </div>
         </div>
@@ -282,27 +299,27 @@
     <div class="container">
         <section id="libro" class="product-grid" style="border-top: 2px solid #e2e8f0;">
             <div class="info-side">
-                <span style="color:var(--secondary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Contenido Editorial Digital</span>
-                <h2 style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">Deja de comerte el coco</h2>
-                <p><strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental.</p>
+                <span data-key="book-tag" style="color:var(--secondary); font-weight:800; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Contenido Editorial Digital</span>
+                <h2 data-key="book-title" style="font-family:'Lora', serif; font-size:2.8rem; margin:10px 0;">Deja de comerte el coco</h2>
+                <p data-key="book-desc"><strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental.</p>
                 
                 <ul style="list-style: none; padding: 0; margin: 30px 0; font-size: 1rem;">
-                    <li style="margin-bottom: 15px;">✦ <strong>Pack Digital:</strong> Incluye archivos PDF y EPUB (Kindle/E-reader).</li>
-                    <li style="margin-bottom: 15px;">✦ <strong>Método Práctico Indexado:</strong> Ejercicios guiados paso a paso.</li>
-                    <li style="margin-bottom: 15px;">✦ <strong>Entrega Digital Inmediata:</strong> Por email tras el pago.</li>
+                    <li style="margin-bottom: 15px;">✦ <strong data-key="l1">Pack Digital:</strong> <span data-key="l1b">Incluye archivos PDF y EPUB (Kindle/E-reader).</span></li>
+                    <li style="margin-bottom: 15px;">✦ <strong data-key="l2">Método Práctico Indexado:</strong> <span data-key="l2b">Ejercicios guiados paso a paso.</span></li>
+                    <li style="margin-bottom: 15px;">✦ <strong data-key="l3">Entrega Digital Inmediata:</strong> <span data-key="l3b">Por email tras el pago.</span></li>
                 </ul>
 
                 <div style="background:var(--light-rose); padding:20px; border-radius:15px; border-left: 4px solid var(--secondary); margin-bottom: 30px;">
-                    <strong style="color:var(--secondary);">¿Dudas? Lee las primeras páginas gratis.</strong>
-                    <p style="font-size: 0.9rem; color: #701a75; margin: 5px 0 10px;">Hemos preparado una muestra en PDF para que puedas valorar la calidad del método Susana B. Fuentes.</p>
-                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/muestra/muestra.pdf" class="btn-muestra" target="_blank">📄 Bajar Muestra Gratuita (PDF)</a>
+                    <strong data-key="doubt-title" style="color:var(--secondary);">¿Dudas? Lee las primeras páginas gratis.</strong>
+                    <p data-key="doubt-p" style="font-size: 0.9rem; color: #701a75; margin: 5px 0 10px;">Hemos preparado una muestra en PDF para que puedas valorar la calidad del método Susana B. Fuentes.</p>
+                    <a href="https://github.com/unajovenmente/Ahora-app/releases/download/muestra/muestra.pdf" class="btn-muestra" target="_blank" data-key="btn-sample">📄 Bajar Muestra Gratuita (PDF)</a>
                 </div>
 
                 <div style="background: #fff; padding: 30px; border-radius: 20px; border: 2px dashed var(--secondary); text-align: center;">
                     <div style="font-size: 2.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 5px;">3,99€</div>
-                    <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 25px;">Licencia Única Pack PDF + EPUB</p>
+                    <p data-key="book-license" style="font-size: 0.9rem; color: var(--slate); margin-bottom: 25px;">Licencia Única Pack PDF + EPUB</p>
                     
-                    <a href="#" class="btn btn-book">Comprar Guía Completa Ahora</a>
+                    <a href="#" class="btn btn-book" data-key="btn-book">Comprar Guía Completa Ahora</a>
                 </div>
             </div>
             <div class="image-side">
@@ -313,8 +330,8 @@
 
     <div style="background: #fff; padding: 80px 0; text-align: center; border-top: 1px solid #e2e8f0;">
         <div class="container">
-            <h3 style="font-family:'Lora', serif; font-size: 1.8rem; margin-bottom: 10px;">¿Dudas con la instalación o la compra?</h3>
-            <p style="color: var(--slate); max-width:600px; margin: 0 auto 30px;">Si necesitas soporte técnico para la App Pro o ayuda con tu pedido editorial, escríbeme directamente:</p>
+            <h3 data-key="support-h3" style="font-family:'Lora', serif; font-size: 1.8rem; margin-bottom: 10px;">¿Dudas con la instalación o la compra?</h3>
+            <p data-key="support-p" style="color: var(--slate); max-width:600px; margin: 0 auto 30px;">Si necesitas soporte técnico para la App Pro o ayuda con tu pedido editorial, escríbeme directamente:</p>
             <a href="mailto:unajovenmente@gmail.com" style="font-size: 1.6rem; font-weight: 800; color: var(--primary); text-decoration: none;">unajovenmente@gmail.com</a>
         </div>
     </div>
@@ -322,27 +339,107 @@
     <footer>
         <div class="container">
             <h2 style="color:white; font-family:'Lora', serif; font-style:italic; font-size: 2.5rem; margin-bottom: 10px;">AHORA</h2>
-            <p style="color: #fff; font-weight: 600; margin: 0;">Susana B. Fuentes | Bienestar Digital</p>
+            <p data-key="footer-subtitle" style="color: #fff; font-weight: 600; margin: 0;">Susana B. Fuentes | Bienestar Digital</p>
             
             <div class="footer-links">
-                <a href="privacy.html">Privacidad</a>
-                <a href="terms.html">Términos del Servicio</a>
-                <a href="refunds.html">Reembolsos</a>
+                <a href="privacy.html" id="link-privacy" data-key="f-priv">Privacidad</a>
+                <a href="terms.html" id="link-terms" data-key="f-terms">Términos del Servicio</a>
+                <a href="refunds.html" id="link-refunds" data-key="f-refunds">Reembolsos</a>
             </div>
             
             <div class="contact-box">
                 <p style="font-size: 0.9rem; margin: 0; color: #fff;">
-                    <strong>Atención al Cliente:</strong> <a href="mailto:unajovenmente@gmail.com" style="color: #fff;">unajovenmente@gmail.com</a><br>
-                    Málaga, España. <br><br>
-                    <small style="opacity: 0.6; line-height: 1.5;">
+                    <strong data-key="f-contact">Atención al Cliente:</strong> <a href="mailto:unajovenmente@gmail.com" style="color: #fff;">unajovenmente@gmail.com</a><br>
+                    <span data-key="f-loc">Málaga, España.</span> <br><br>
+                    <small data-key="f-paddle" style="opacity: 0.6; line-height: 1.5;">
                         Merchant of Record: Paddle.com. Como distribuidor oficial, Paddle gestiona la facturación, los impuestos y la entrega segura de nuestros productos digitales inmediatamente tras el pago.
                     </small>
                 </p>
             </div>
             
-            <p style="margin-top: 50px; font-size: 0.75rem; opacity: 0.3;">© 2026 AHORA. Todos los derechos reservados.</p>
+            <p data-key="f-copy" style="margin-top: 50px; font-size: 0.75rem; opacity: 0.3;">© 2026 AHORA. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        const translations = {
+            es: {
+                "nav-app": "La App", "nav-libro": "El Libro", "nav-soporte": "Soporte",
+                "hero-h1": "Silencia el ruido,<br><span style='color:var(--primary);'>recupera tu presente.</span>",
+                "hero-p": "Ecosistema de bienestar mental creado por la autora y desarrolladora <strong>Susana B. Fuentes</strong> para combatir la rumiación y el piloto automático.",
+                "app-tag": "Software de Transformación Mental", "app-title": "App AHORA Pro",
+                "app-desc": "Un santuario privado para gestionar el estrés. Rompe el ciclo del pensamiento intrusivo con herramientas de bio-feedback y reprogramación mental.",
+                "th-func": "Funciones", "td-mind": "Momento Mindfulness", "td-basic": "Nivel Básico", "td-custom": "✓ Personalizable",
+                "td-grat": "Diario de Gratitud", "td-unlim": "✓ Ilimitado", "td-zen": "Recordatorios Zen", "td-std": "Estándar",
+                "td-custom-pro": "✓ Personalizables Pro", "td-breath": "Guías de Respiración", "td-hist": "Historial y Logros",
+                "td-levels": "✓ 3 Niveles Avanzados", "td-prog": "✓ Progresión Avanzada", "td-phrases": "Frases", "td-pre": "Predefinidas",
+                "td-price": "Precio Único", "td-free": "Gratis", "btn-lite": "Bajar Versión Lite (Gratis)", "btn-pro": "Activar Licencia Pro (2,99€)",
+                "gal-tag": "Tour Visual Premium", "gal-title": "Experiencia Zen Sin Anuncios", "gal-p": "Descubre la interfaz limpia y minimalista diseñada para guiarte hacia la calma.",
+                "g1": "Reloj Zen", "g2": "Temporizador Mindfulness", "g3": "Guía de Relajación Guiada", "g4": "Registro Gratitud Privado", "g5": "Reprogramación Mental ACTIVA", "g6": "Personalización de Intervalos", "g7": "Metas y Logros Conseguidos",
+                "book-tag": "Contenido Editorial Digital", "book-title": "Deja de comerte el coco", "book-desc": "<strong>Libérate de la preocupación de forma definitiva.</strong> La guía psicológica y práctica para desmantelar los hábitos de pensamiento que agotan tu energía mental.",
+                "l1": "Pack Digital:", "l1b": "Incluye archivos PDF y EPUB (Kindle/E-reader).", "l2": "Método Práctico Indexado:", "l2b": "Ejercicios guiados paso a paso.", "l3": "Entrega Digital Inmediata:", "l3b": "Por email tras el pago.",
+                "doubt-title": "¿Dudas? Lee las primeras páginas gratis.", "doubt-p": "Hemos preparado una muestra en PDF para que puedas valorar la calidad del método Susana B. Fuentes.", "btn-sample": "📄 Bajar Muestra Gratuita (PDF)",
+                "book-license": "Licencia Única Pack PDF + EPUB", "btn-book": "Comprar Guía Completa Ahora",
+                "support-h3": "¿Dudas con la instalación o la compra?", "support-p": "Si necesitas soporte técnico para la App Pro o ayuda con tu pedido editorial, escríbeme directamente:",
+                "footer-subtitle": "Susana B. Fuentes | Bienestar Digital", "f-priv": "Privacidad", "f-terms": "Términos del Servicio", "f-refunds": "Reembolsos",
+                "f-contact": "Atención al Cliente:", "f-loc": "Málaga, España.", "f-paddle": "Merchant of Record: Paddle.com. Como distribuidor oficial, Paddle gestiona la facturación, los impuestos y la entrega segura de nuestros productos digitales inmediatamente tras el pago.",
+                "f-copy": "© 2026 AHORA. Todos los derechos reservados.",
+                "url-priv": "privacy.html", "url-terms": "terms.html", "url-refunds": "refunds.html"
+            },
+            en: {
+                "nav-app": "The App", "nav-libro": "The Book", "nav-soporte": "Support",
+                "hero-h1": "Silence the noise,<br><span style='color:var(--primary);'>reclaim your present.</span>",
+                "hero-p": "Mental wellbeing ecosystem created by author and developer <strong>Susana B. Fuentes</strong> to combat rumination and autopilot.",
+                "app-tag": "Mental Transformation Software", "app-title": "AHORA Pro App",
+                "app-desc": "A private sanctuary to manage stress. Break the cycle of intrusive thoughts with bio-feedback and mental reprogramming tools.",
+                "th-func": "Features", "td-mind": "Mindfulness Moment", "td-basic": "Basic Level", "td-custom": "✓ Customizable",
+                "td-grat": "Gratitude Journal", "td-unlim": "✓ Unlimited", "td-zen": "Zen Reminders", "td-std": "Standard",
+                "td-custom-pro": "✓ Pro Customization", "td-breath": "Breathing Guides", "td-hist": "History & Achievements",
+                "td-levels": "✓ 3 Advanced Levels", "td-prog": "✓ Advanced Progression", "td-phrases": "Quotes", "td-pre": "Predefined",
+                "td-price": "One-time Price", "td-free": "Free", "btn-lite": "Download Lite Version (Free)", "btn-pro": "Activate Pro License (€2.99)",
+                "gal-tag": "Premium Visual Tour", "gal-title": "Zen Experience Without Ads", "gal-p": "Discover the clean and minimalist interface designed to lead you towards calm.",
+                "g1": "Zen Clock", "g2": "Mindfulness Timer", "g3": "Guided Relaxation Guide", "g4": "Private Gratitude Log", "g5": "ACTIVE Mental Reprogramming", "g6": "Interval Customization", "g7": "Goals & Achievements Reached",
+                "book-tag": "Digital Editorial Content", "book-title": "Stop Overthinking", "book-desc": "<strong>Free yourself from worry for good.</strong> The psychological and practical guide to dismantling thought habits that drain your mental energy.",
+                "l1": "Digital Pack:", "l1b": "Includes PDF and EPUB files (Kindle/E-reader).", "l2": "Practical Indexed Method:", "l2b": "Step-by-step guided exercises.", "l3": "Immediate Digital Delivery:", "l3b": "Via email after payment.",
+                "doubt-title": "Doubts? Read the first pages for free.", "doubt-p": "We have prepared a PDF sample so you can evaluate the quality of the Susana B. Fuentes method.", "btn-sample": "📄 Download Free Sample (PDF)",
+                "book-license": "Single License PDF + EPUB Pack", "btn-book": "Buy Complete Guide Now",
+                "support-h3": "Questions about installation or purchase?", "support-p": "If you need technical support for the Pro App or help with your editorial order, write to me directly:",
+                "footer-subtitle": "Susana B. Fuentes | Digital Wellbeing", "f-priv": "Privacy", "f-terms": "Terms of Service", "f-refunds": "Refunds",
+                "f-contact": "Customer Support:", "f-loc": "Malaga, Spain.", "f-paddle": "Merchant of Record: Paddle.com. As official distributor, Paddle manages billing, taxes, and secure delivery of our digital products immediately after payment.",
+                "f-copy": "© 2026 AHORA. All rights reserved.",
+                "url-priv": "privacy-en.html", "url-terms": "terms-en.html", "url-refunds": "refunds-en.html"
+            }
+        };
+
+        const langSelector = document.getElementById('langSelector');
+
+        langSelector.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            
+            // Traducir todos los elementos con data-key
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Cambiar enlaces del footer
+            document.getElementById('link-privacy').href = translations[lang]["url-priv"];
+            document.getElementById('link-terms').href = translations[lang]["url-terms"];
+            document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
+
+            // Guardar preferencia
+            localStorage.setItem('prefLang', lang);
+        });
+
+        // Al cargar la página
+        window.onload = () => {
+            const savedLang = localStorage.getItem('prefLang') || 'es';
+            langSelector.value = savedLang;
+            langSelector.dispatchEvent(new Event('change'));
+        };
+    </script>
 
 </body>
 </html>
