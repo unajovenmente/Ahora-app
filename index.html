@@ -38,13 +38,15 @@
         /* Selector de Idioma */
         .lang-select {
             margin-left: 20px;
-            padding: 5px;
+            padding: 5px 10px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
+            background: white;
             font-family: inherit;
             font-weight: 600;
             cursor: pointer;
-            color: var(--slate);
+            color: var(--primary);
+            outline: none;
         }
 
         /* HERO */
@@ -424,16 +426,16 @@
                 }
             });
 
-            // Cambiar enlaces del footer
+            // Cambiar enlaces del footer dinámicamente
             document.getElementById('link-privacy').href = translations[lang]["url-priv"];
             document.getElementById('link-terms').href = translations[lang]["url-terms"];
             document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
 
-            // Guardar preferencia
+            // Guardar preferencia en el navegador
             localStorage.setItem('prefLang', lang);
         });
 
-        // Al cargar la página
+        // Al cargar la página, recuperar el idioma guardado
         window.onload = () => {
             const savedLang = localStorage.getItem('prefLang') || 'es';
             langSelector.value = savedLang;
