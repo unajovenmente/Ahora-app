@@ -669,6 +669,13 @@
                 "td-pre": "Predefinidas",
                 "td-price": "Precio Único",
                 "td-free": "Gratis",
+                "td-mind-pro": "✓ Personalizable",
+                "td-grat-pro": "✓ Ilimitado",
+                "td-zen-pro": "✓ Personalizables Pro",
+                "td-breath-pro": "✓ 3 Niveles",
+                "td-hist-pro": "✓ Progresión Avanzada",
+                "td-phrases-pro": "✓ Personalizables",
+                "td-price-pro": "2,99€",
                 "btn-lite": "Bajar Versión Lite (Gratis)",
                 "btn-pro": "Activar Licencia Pro (2,99€)",
                 "gal-tag": "Tour Visual Premium",
@@ -689,7 +696,7 @@
                 "doubt-title": "¿Aún tienes dudas? Lee las primeras páginas gratis.",
                 "doubt-p": "He preparado una muestra en PDF para que compruebes el valor del contenido.",
                 "btn-sample": "📄 Descargar Muestra Gratuita",
-                "btn-book": "Comprar Guía Completa Ahora 3,99 €",
+                "btn-book": "Comprar Guía Completa — 3,99€",
                 "faq-tag": "Resolución de Dudas",
                 "faq-title": "Preguntas Frecuentes",
                 "q1": "¿Por qué las notificaciones no llegan a la hora exacta?",
@@ -751,7 +758,7 @@
                 "td-phrases-pro": "✓ Customizable",
                 "td-price-pro": "2.99€",
                 "btn-lite": "Download Lite Version (Free)",
-                "btn-pro": "Activate Pro License (€2.99)",
+                "btn-pro": "Activate Pro License (2.99€)",
                 "gal-tag": "Premium Visual Tour",
                 "gal-title": "Ad-Free Zen Experience",
                 "g2": "Mindfulness",
@@ -770,7 +777,7 @@
                 "doubt-title": "Still have questions? Read the first pages for free.",
                 "doubt-p": "I have prepared a PDF sample so you can check the value of the content.",
                 "btn-sample": "📄 Download Free Sample",
-                "btn-book": "Buy Complete Guide Now 3,99 €",
+                "btn-book": "Buy Complete Guide — 3.99€",
                 "faq-tag": "Troubleshooting",
                 "faq-title": "Frequently Asked Questions",
                 "q1": "Why aren't notifications arriving on time?",
@@ -778,7 +785,7 @@
                 "q2": "Does the app need to be open?",
                 "a2": "No. The app works in the background. On Xiaomi or Samsung devices, enable 'Auto-start' in the app settings to avoid unexpected closures.",
                 "q3": "Is it really a one-time payment?",
-                "a3": "Yes. AHORA Pro has no subscriptions. Once you activate the license, it's yours forever linked to your movil account.",
+                "a3": "Yes. AHORA Pro has no subscriptions. Once you activate the license, it's yours forever linked to your mobile account.",
                 "q4": "I set up reminders but I receive nothing.",
                 "a4": "Check if 'Do Not Disturb' or 'Bedtime Mode' is on. Also, the interval must be over 15 minutes due to Android system restrictions.",
                 "support-h3": "Need help with your purchase?",
@@ -803,6 +810,50 @@
                 "url-refunds": "refunds-en.html"
             }
         };
+
+        const langSelector = document.getElementById('langSelector');
+        langSelector.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-img').forEach(img => {
+                const imgKey = img.getAttribute('data-img');
+                if (translations[lang][imgKey]) {
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = translations[lang][imgKey];
+                        img.style.opacity = '1';
+                    }, 200);
+                }
+            });
+
+            document.getElementById('link-privacy').href = translations[lang]["url-priv"];
+            document.getElementById('link-terms').href = translations[lang]["url-terms"];
+            document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
+            
+            localStorage.setItem('prefLang', lang);
+        });
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('prefLang') || 'es';
+            langSelector.value = savedLang;
+            langSelector.dispatchEvent(new Event('change'));
+        };
+    </script>
+</body>
+</html>
 
         const langSelector = document.getElementById('langSelector');
 
