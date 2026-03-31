@@ -196,13 +196,20 @@
             display: flex;
             gap: 20px;
             padding: 40px;
-            overflow-x: auto;
+            overflow-x: auto; /* Esto activa el desplazamiento */
             scroll-snap-type: x mandatory;
-            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
 
+        /* Esto asegura que la barra de desplazamiento sea visible y de color violeta */
         .gallery-scroll::-webkit-scrollbar {
-            display: none;
+            height: 8px;
+            display: block; /* Obliga a que se muestre */
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
         }
 
         .gallery-item {
