@@ -812,8 +812,11 @@
         };
 
         const langSelector = document.getElementById('langSelector');
+
         langSelector.addEventListener('change', (e) => {
             const lang = e.target.value;
+            
+            // Traducir textos
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
@@ -821,6 +824,7 @@
                 }
             });
 
+            // Traducir imágenes
             document.querySelectorAll('.lang-img').forEach(img => {
                 const imgKey = img.getAttribute('data-img');
                 if (translations[lang][imgKey]) {
@@ -832,55 +836,14 @@
                 }
             });
 
-            document.getElementById('link-privacy').href = translations[lang]["url-priv"];
-            document.getElementById('link-terms').href = translations[lang]["url-terms"];
-            document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
+            // Traducir enlaces legales
+            const priv = document.getElementById('link-privacy');
+            const term = document.getElementById('link-terms');
+            const refu = document.getElementById('link-refunds');
             
-            localStorage.setItem('prefLang', lang);
-        });
-
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
-
-        window.onload = () => {
-            const savedLang = localStorage.getItem('prefLang') || 'es';
-            langSelector.value = savedLang;
-            langSelector.dispatchEvent(new Event('change'));
-        };
-    </script>
-</body>
-</html>
-
-        const langSelector = document.getElementById('langSelector');
-
-        langSelector.addEventListener('change', (e) => {
-            const lang = e.target.value;
-            
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-
-            document.querySelectorAll('.lang-img').forEach(img => {
-                const imgKey = img.getAttribute('data-img');
-                if (translations[lang][imgKey]) {
-                    img.style.opacity = '0';
-                    setTimeout(() => {
-                        img.src = translations[lang][imgKey];
-                        img.style.opacity = '1';
-                    }, 200);
-                }
-            });
-
-            document.getElementById('link-privacy').href = translations[lang]["url-priv"];
-            document.getElementById('link-terms').href = translations[lang]["url-terms"];
-            document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
+            if(priv) priv.href = translations[lang]["url-priv"];
+            if(term) term.href = translations[lang]["url-terms"];
+            if(refu) refu.href = translations[lang]["url-refunds"];
 
             localStorage.setItem('prefLang', lang);
         });
@@ -888,11 +851,11 @@
         // FAQ Interactivity
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
+                button.parentElement.classList.toggle('active');
             });
         });
 
+        // Ejecutar al cargar
         window.onload = () => {
             const savedLang = localStorage.getItem('prefLang') || 'es';
             langSelector.value = savedLang;
