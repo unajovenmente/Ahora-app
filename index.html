@@ -196,20 +196,27 @@
             display: flex;
             gap: 20px;
             padding: 40px;
-            overflow-x: auto; /* Esto activa el desplazamiento */
+            overflow-x: auto !important; /* Forzamos el scroll lateral */
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Esto asegura que la barra de desplazamiento sea visible y de color violeta */
+        /* Forzamos que la barra sea visible sí o sí */
         .gallery-scroll::-webkit-scrollbar {
-            height: 8px;
-            display: block; /* Obliga a que se muestre */
+            height: 12px !important; /* Un poco más gruesa para que se vea bien */
+            display: block !important;
         }
 
         .gallery-scroll::-webkit-scrollbar-thumb {
-            background: var(--primary);
+            background-color: #7b68ee !important; /* Color violeta */
             border-radius: 10px;
+            border: 2px solid var(--dark); /* Para que resalte sobre el fondo oscuro */
+        }
+
+        /* Para navegadores que no son Chrome (como Firefox) */
+        .gallery-scroll {
+            scrollbar-width: auto !important;
+            scrollbar-color: #7b68ee var(--dark);
         }
 
         .gallery-item {
