@@ -227,6 +227,64 @@
             letter-spacing: 1px;
         }
 
+        /* FAQ Estilos */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f1f5f9;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 10px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer p { padding: 10px 0 20px; }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
         .btn-container {
             display: flex;
             flex-direction: column;
@@ -346,6 +404,7 @@
             <nav>
                 <a href="#app" data-key="nav-app">La App</a>
                 <a href="#libro" data-key="nav-libro">El Libro</a>
+                <a href="#faq" data-key="nav-faq">FAQ</a>
                 <a href="mailto:unajovenmente@gmail.com" data-key="nav-soporte">Soporte</a>
                 <select id="langSelector" class="lang-select">
                     <option value="es">ES</option>
@@ -495,6 +554,57 @@
         </section>
     </div>
 
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div style="text-align:center; max-width:600px; margin: 0 auto 50px;">
+                <span data-key="faq-tag" style="color:var(--primary); font-weight:800; text-transform:uppercase; font-size:0.8rem;">Resolución de Dudas</span>
+                <h2 data-key="faq-title" style="font-family:'Lora', serif; font-size:2.5rem; margin-top:10px;">Preguntas Frecuentes</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-key="q1">¿Por qué las notificaciones no llegan a la hora exacta?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-key="a1">Android prioriza el ahorro de energía. Para asegurar la puntualidad: ve a Ajustes > Aplicaciones > AHORA > Batería y selecciona "Sin restricciones". Esto evita que el sistema "duerma" la aplicación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-key="q2">¿La app debe estar siempre abierta?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-key="a2">No es necesario. La app funciona en segundo plano. En dispositivos Xiaomi o Samsung, asegúrate de activar el "Inicio Automático" en la configuración de la app para evitar cierres inesperados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-key="q3">¿Es un pago único realmente?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-key="a3">Sí. AHORA Pro no tiene suscripciones. Una vez activas la licencia, es tuya para siempre y se vincula a tu cuenta de Google Play, incluso si cambias de teléfono.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-key="q4">Configuré los recordatorios pero no recibo nada.</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-key="a4">Revisa si el modo "No molestar" o el "Modo Descanso" están activos. También verifica que el intervalo seleccionado sea superior a 15 minutos, ya que Android bloquea tareas demasiado frecuentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="support-section">
         <div class="container">
             <h3 data-key="support-h3" style="font-family:'Lora', serif; font-size: 2rem; margin-bottom: 10px;">¿Necesitas ayuda con tu compra?</h3>
@@ -526,6 +636,7 @@
             es: {
                 "nav-app": "La App",
                 "nav-libro": "El Libro",
+                "nav-faq": "FAQ",
                 "nav-soporte": "Soporte",
                 "hero-h1": "Silencia el ruido,<br><span style='color:var(--primary);'>recupera tu presente.</span>",
                 "hero-p": "Ecosistema de bienestar mental creado por la autora y desarrolladora <strong>Susana B. Fuentes</strong> para combatir la rumiación y el piloto automático.",
@@ -565,6 +676,16 @@
                 "doubt-p": "He preparado una muestra en PDF para que compruebes el valor del contenido.",
                 "btn-sample": "📄 Descargar Muestra Gratuita",
                 "btn-book": "Comprar Guía Completa Ahora",
+                "faq-tag": "Resolución de Dudas",
+                "faq-title": "Preguntas Frecuentes",
+                "q1": "¿Por qué las notificaciones no llegan a la hora exacta?",
+                "a1": "Android prioriza el ahorro de energía. Para asegurar la puntualidad: ve a Ajustes > Aplicaciones > AHORA > Batería y selecciona 'Sin restricciones'.",
+                "q2": "¿La app debe estar siempre abierta?",
+                "a2": "No es necesario. La app funciona en segundo plano. En dispositivos Xiaomi o Samsung, activa el 'Inicio Automático' en la configuración de la app.",
+                "q3": "¿Es un pago único realmente?",
+                "a3": "Sí. AHORA Pro no tiene suscripciones. Una vez activas la licencia, es tuya para siempre vinculada a tu cuenta de Google Play.",
+                "q4": "Configuré los recordatorios pero no recibo nada.",
+                "a4": "Revisa si el modo 'No molestar' o 'Modo Descanso' están activos. El intervalo debe ser de al menos 15 minutos por limitaciones de Android.",
                 "support-h3": "¿Necesitas ayuda con tu compra?",
                 "support-p": "Si tienes problemas con la instalación o la descarga, escríbeme directamente:",
                 "f-priv": "Privacidad",
@@ -589,6 +710,7 @@
             en: {
                 "nav-app": "The App",
                 "nav-libro": "The Book",
+                "nav-faq": "FAQ",
                 "nav-soporte": "Support",
                 "hero-h1": "Silence the noise,<br><span style='color:var(--primary);'>reclaim your present.</span>",
                 "hero-p": "Mental wellbeing ecosystem created by author and developer <strong>Susana B. Fuentes</strong> to combat rumination and autopilot.",
@@ -628,6 +750,16 @@
                 "doubt-p": "I have prepared a PDF sample so you can check the value of the content.",
                 "btn-sample": "📄 Download Free Sample",
                 "btn-book": "Buy Complete Guide Now",
+                "faq-tag": "Troubleshooting",
+                "faq-title": "Frequently Asked Questions",
+                "q1": "Why aren't notifications arriving on time?",
+                "a1": "Android prioritizes battery saving. To ensure timeliness: go to Settings > Apps > AHORA > Battery and select 'Unrestricted'.",
+                "q2": "Does the app need to be open?",
+                "a2": "No. The app works in the background. On Xiaomi or Samsung devices, enable 'Auto-start' in the app settings to avoid unexpected closures.",
+                "q3": "Is it really a one-time payment?",
+                "a3": "Yes. AHORA Pro has no subscriptions. Once you activate the license, it's yours forever linked to your Google Play account.",
+                "q4": "I set up reminders but I receive nothing.",
+                "a4": "Check if 'Do Not Disturb' or 'Bedtime Mode' is on. Also, the interval must be over 15 minutes due to Android system restrictions.",
                 "support-h3": "Need help with your purchase?",
                 "support-p": "If you have issues with installation or downloading, write to me directly:",
                 "f-priv": "Privacy",
@@ -656,7 +788,6 @@
         langSelector.addEventListener('change', (e) => {
             const lang = e.target.value;
             
-            // Actualizar todos los textos con data-key
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
@@ -664,7 +795,6 @@
                 }
             });
 
-            // Actualizar todas las imágenes con la clase lang-img
             document.querySelectorAll('.lang-img').forEach(img => {
                 const imgKey = img.getAttribute('data-img');
                 if (translations[lang][imgKey]) {
@@ -676,20 +806,24 @@
                 }
             });
 
-            // Actualizar los enlaces de los archivos legales
             document.getElementById('link-privacy').href = translations[lang]["url-priv"];
             document.getElementById('link-terms').href = translations[lang]["url-terms"];
             document.getElementById('link-refunds').href = translations[lang]["url-refunds"];
 
-            // Guardar preferencia
             localStorage.setItem('prefLang', lang);
         });
 
-        // Al cargar la página, recuperar el idioma
+        // FAQ Interactivity
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
         window.onload = () => {
             const savedLang = localStorage.getItem('prefLang') || 'es';
             langSelector.value = savedLang;
-            // Disparar el evento de cambio para aplicar el idioma guardado
             langSelector.dispatchEvent(new Event('change'));
         };
     </script>
