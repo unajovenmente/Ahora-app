@@ -93,7 +93,7 @@
         }
 
         .hero h1 { 
-            font-family: 'Lora', serif;
+            font-family: 'Lora', serif; 
             font-size: clamp(2.2rem, 6vw, 4.2rem); 
             margin-bottom: 25px;
             font-style: italic;
@@ -198,16 +198,11 @@
             padding: 40px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
+            scrollbar-width: none;
         }
 
         .gallery-scroll::-webkit-scrollbar {
-            height: 8px;
-            display: block;
-        }
-
-        .gallery-scroll::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
+            display: none;
         }
 
         .gallery-item {
@@ -232,6 +227,7 @@
             letter-spacing: 1px;
         }
 
+        /* FAQ Estilos */
         .faq-section {
             padding: 80px 0;
             background: var(--white);
@@ -333,7 +329,7 @@
         }
 
         .btn-muestra { 
-            background: #e2e8f0;
+            background: #e2e8f0; 
             color: #1f2937; 
             font-size: 0.8rem; 
             padding: 10px 20px; 
@@ -478,13 +474,13 @@
                             <tr>
                                 <td><strong data-key="td-price">Precio Único</strong></td>
                                 <td><strong data-key="td-free">Gratis</strong></td>
-                                <td class="col-pro"><strong>3,99€</strong></td>
+                                <td class="col-pro"><strong>2,99€</strong></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="btn-container">
                         <a href="#" class="btn btn-lite" data-key="btn-lite">Bajar Versión Lite (Gratis)</a>
-                        <a href="#" class="btn btn-pro" data-key="btn-pro">Activar Licencia Pro (3,99€)</a>
+                        <a href="#" class="btn btn-pro" data-key="btn-pro">Activar Licencia Pro (2,99€)</a>
                     </div>
                 </div>
             </div>
@@ -550,7 +546,7 @@
                     <a href="#" class="btn-muestra" data-key="btn-sample">📄 Descargar Muestra Gratuita</a>
                 </div>
 
-                <a href="#" class="btn btn-book" data-key="btn-book">Comprar Guía Completa — 3,99€</a>
+                <a href="#" class="btn btn-book" data-key="btn-book">Comprar Guía Completa Ahora</a>
             </div>
             <div class="image-side">
                 <img src="portada_libro.jpg" class="lang-img" data-img="img-book" alt="Portada Libro">
@@ -660,7 +656,7 @@
                 "td-price": "Precio Único",
                 "td-free": "Gratis",
                 "btn-lite": "Bajar Versión Lite (Gratis)",
-                "btn-pro": "Activar Licencia Pro (3,99€)",
+                "btn-pro": "Activar Licencia Pro (2,99€)",
                 "gal-tag": "Tour Visual Premium",
                 "gal-title": "Experiencia Zen Sin Anuncios",
                 "g2": "Mindfulness",
@@ -679,7 +675,7 @@
                 "doubt-title": "¿Aún tienes dudas? Lee las primeras páginas gratis.",
                 "doubt-p": "He preparado una muestra en PDF para que compruebes el valor del contenido.",
                 "btn-sample": "📄 Descargar Muestra Gratuita",
-                "btn-book": "Comprar Guía Completa — 3,99€",
+                "btn-book": "Comprar Guía Completa Ahora",
                 "faq-tag": "Resolución de Dudas",
                 "faq-title": "Preguntas Frecuentes",
                 "q1": "¿Por qué las notificaciones no llegan a la hora exacta?",
@@ -697,7 +693,7 @@
                 "f-refunds": "Política de Reembolso",
                 "f-contact": "Atención al Cliente:",
                 "f-author": "Creado por Susana B. Fuentes",
-                "f-paddle": "AHORA es un product digital. Merchant of Record: Paddle.com.",
+                "f-paddle": "AHORA es un producto digital. Merchant of Record: Paddle.com.",
                 "f-copy": "© 2026 AHORA - Bienestar Digital. Todos los derechos reservados.",
                 "img-main": "principal.jpg",
                 "img-book": "portada_libro.jpg",
@@ -734,7 +730,7 @@
                 "td-price": "One-time Price",
                 "td-free": "Free",
                 "btn-lite": "Download Lite Version (Free)",
-                "btn-pro": "Activate Pro License (3.99€)",
+                "btn-pro": "Activate Pro License (€2.99)",
                 "gal-tag": "Premium Visual Tour",
                 "gal-title": "Ad-Free Zen Experience",
                 "g2": "Mindfulness",
@@ -753,7 +749,7 @@
                 "doubt-title": "Still have questions? Read the first pages for free.",
                 "doubt-p": "I have prepared a PDF sample so you can check the value of the content.",
                 "btn-sample": "📄 Download Free Sample",
-                "btn-book": "Buy Complete Guide — 3.99€",
+                "btn-book": "Buy Complete Guide Now",
                 "faq-tag": "Troubleshooting",
                 "faq-title": "Frequently Asked Questions",
                 "q1": "Why aren't notifications arriving on time?",
@@ -817,6 +813,7 @@
             localStorage.setItem('prefLang', lang);
         });
 
+        // FAQ Interactivity
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
